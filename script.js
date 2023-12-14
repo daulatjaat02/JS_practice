@@ -2,6 +2,54 @@
 
 // Data Structures, Modern operators and strings
 
+//////////////////////////////////////
+// 5.
+
+////////////////////////////////////////////////////
+// //4.  The Nullish coalescing Operator (null and undefined )
+// let name = "daulat";
+// let age;
+// let first = null;
+// console.log(first ?? "Invalid search");
+
+// let num = 34;
+// let num2 = 0; //(falsy value)
+// console.log(num2 ?? num); // 0
+// console.log(num2 || num); // 34 ( 0 is a falsy value)
+
+//////////////////////////////////////////////
+// 3. Spread/ Ellipse Opetator
+
+// // *   Iterables: arrays, strings, maps, sets. NOT objects
+// let str = "daulat";
+// let letters = [...str, "", 5];
+// console.log(...str); // d a u l a t
+// console.log(letters); //  ['d', 'a', 'u', 'l', 'a', 't', '', 5]
+
+// A. with Arrays
+// // a. Concatenating Arrays
+// let num = [1, 2, 4];
+// let num2 = [3, 5, 6];
+// let numTotal = [...num, ...num2];
+// console.log(numTotal);
+
+// // b. Coping Arrays
+// let numCopy = [...num];
+
+// // c. Adding elements to an arrry
+// let numbers = [...numTotal, 7, 8, 9];
+// console.log(numbers);
+
+// B. with objects :
+// Merging Objetcs
+// coping Objects
+
+// // C. with functions
+// let sum = (a, b, c, d) => {
+//   return a + b + c + d;
+// };
+// console.log(sum(...numbers));
+
 //////////////////////////////////////////////
 // 2. Destructure Objects
 // let computer = {
