@@ -2,8 +2,85 @@
 
 // Data Structures, Modern operators and strings
 
+//////////////////////////////////
+// 8. Looping Objects : Object keys, values and Entries
+// const openingHours = {
+//   sun: {
+//     open: 12,
+//     close: 22,
+//   },
+//   mon: {
+//     open: 11,
+//     close: 23,
+//   },
+//   tue: {
+//     open: 0, // Open 24 hours
+//     close: 24,
+//   },
+// };
+// let shop = {
+//   openingHours,
+// };
+// let properties = Object.keys(openingHours);
+// console.log(properties);
+
+// let openStr = `We are opening ${properties.length} days : `;
+// for (let day of properties) {
+//   openStr += ` ${day} `;
+// }
+// console.log(openStr);
+
+// properties = Object.values(openingHours);
+// console.log(properties);
+
+// let properties = Object.entries(openingHours);
+// console.log(properties);
+
+// for (const [day, { open, close }] of properties) {
+//   console.log(`On ${day} we open at ${open} and close at ${close}`);
+// }
+
+/////////////////////////////////////////////////////////////
+// 7.   Optional Channing ( ? ) : null , undefined
+// let computer = {
+//   moniter: "zebronics",
+//   keyboard: "hp",
+//   motherBoard: {
+//     brand: "Gigabyte",
+//     model: "GA-Z590-AORUS-PRO-AX",
+//     chipset: "Intel Z590",
+//   },
+//   mouse: "hp",
+//   cpu: "zebronics",
+//   speaker: "intel",
+//   pc: null,
+// };
+// let item = computer.motherBoard.brand;
+// let item1 = computer.motherBoard.price;
+// let item2 = computer.price?.model;
+// let item3 = computer.pc?.model;
+// console.log(item, item1, item2, item3); //Gigabyte undefined undefined undefined
+
+////////////////////////////
+// 6. Object enhanced literals
+// let company = {
+//   // Objecet Enhanced Literals
+//   computer,
+// };
+// console.log(company); // {computer: {…}}
+
 //////////////////////////////////////
-// 5.
+// 5. for...of loop
+
+// let books = ["hindi", "english", "math", "science", "sst", "geography"];
+// for (let book of books) {
+//   console.log(book);
+// }
+
+// let religion = "Hindu";
+// for (let key of religion) {
+//   console.log(key);
+// }
 
 ////////////////////////////////////////////////////
 // //4.  The Nullish coalescing Operator (null and undefined )
