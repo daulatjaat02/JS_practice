@@ -75,4 +75,36 @@ const game = {
 // // 7.
 // team1 > team2 && console.log(` Team 2 is more likely to win `);
 // team1 < team2 && console.log(` Team 1 is more likely to win `);
+
 // /////////////////////////////////
+
+// Challange NO 2
+
+// 1.
+// for (let [i, player] of game.scored.entries()) {
+//   console.log(`Goal ${i + 1} : ${player}`);
+// }
+
+// // 2.
+// let odds = Object.values(game.odds);
+// let average = 0;
+// for (let odd of odds) {
+//   average += odd;
+//   average /= odds.length;
+// }
+// console.log(average);
+
+// // 3.
+
+// console.log(Object.entries(game.odds));
+// for (let [team, odd] of Object.entries(game.odds)) {
+//   let Str = team === "x" ? "draw" : `victory  ${game[team]}`;
+//   console.log(`Odd of ${Str} : ${odd}`);
+// }
+
+// // 4.
+// let scorers = {};
+// for (let player of game.scored) {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// }
+// console.log(scorers);

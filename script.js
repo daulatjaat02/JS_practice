@@ -1,6 +1,69 @@
 "use strict";
 
 // Data Structures, Modern operators and strings
+///////////////////////
+// 9. Sets : ( .add, .delete, .has, .size, .clear())
+// let num = [1, 2, 2, 2, 4, 5, 2, 5, 6, 7, 8, 9, 10];
+// let unique = [...new Set(num)];
+// console.log(unique);
+
+// // a. Adding and deleting elements
+
+// let computer = new Set();
+// computer.add("Keyboard");
+// computer.add("Mice");
+// computer.add("Moniter");
+// console.log(computer);
+// computer.delete("Moniter");
+// console.log(computer);
+
+// // b. Checking
+
+// console.log(computer.has("Moniter")); //false
+
+// // c. Iterating Over a Set
+
+// computer.forEach((equpment) => {
+//   console.log(equpment);
+// });
+
+// // d. Size
+
+// let computer = new Set([
+//   "keyboard",
+//   "keyboard",
+//   "speaker",
+//   "mouse",
+//   "keyboard",
+//   "mouse",
+//   "speaker",
+// ]);
+// console.log(computer.size); // 3
+// computer.clear();
+// console.log(computer.size); // 0
+
+// // e. Converting Sets to Arrays
+
+// let computerArray = [...computer];
+// console.log(computerArray);
+
+// // f. Example
+
+// let chatUserNames = new Set();
+
+// let joinChat = (userName) => {
+//   if (chatUserNames.has(userName)) {
+//     console.log(
+//       `Username ${userName} is already taken. Please choose another. `
+//     );
+//   } else {
+//     chatUserNames.add(userName);
+//     console.log(`${userName} joined the chat.`);
+//   }
+// };
+// joinChat("Daulat"); // Daulat joined the chat.
+// joinChat("Muskan");
+// joinChat("Muskan"); // Username Muskan is already taken. Please choose another.
 
 //////////////////////////////////
 // 8. Looping Objects : Object keys, values and Entries
