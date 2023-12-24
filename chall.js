@@ -93,7 +93,6 @@ const game = {
 //   average /= odds.length;
 // }
 // console.log(average);
-
 // // 3.
 
 // console.log(Object.entries(game.odds));

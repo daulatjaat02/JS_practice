@@ -1,6 +1,80 @@
 "use strict";
 
 // Data Structures, Modern operators and strings
+
+//////////////////////////////////
+// practice : string
+
+// 10. Strings : ( indexOf, lastindesOf, slice, toLowerCase, trim, replace, includes, startsWith , join, split, padStart, padEnd, repeat  )
+
+// let airline = "TAP Air India";
+// const plane = "A342";
+
+// console.log(plane[2]);
+// console.log("D345"[1]);
+// console.log("D345".length);
+
+// console.log(airline.indexOf("r"));
+// console.log(airline.lastIndexOf("r"));
+// console.log(airline.indexOf("India"));
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
+
+// console.log(airline.slice(0, airline.lastIndexOf(" ")));
+// console.log(airline.slice(airline.lastIndexOf(" ") + 1));
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1));
+
+// const checkMiddleSeat = function (seat) {
+//   const s = seat.slice(-1);
+//   if (s === "B" || s === "E") console.log("You got the Middle seat");
+//   else console.log("You got Lucky");
+// };
+// checkMiddleSeat("23B");
+// checkMiddleSeat("23A");
+// checkMiddleSeat("23E");
+// checkMiddleSeat("24D");
+
+// console.log(new String("Daualt"));
+// // console.log(typeof new String("Daulat"));
+// // console.log(typeof new String("Daulat").slice(-1));
+// //////////////////
+// console.log(airline.toUpperCase());
+// console.log(airline.toLowerCase());
+
+// // fix capitilization in name
+
+// let passanger = "dAULat JaJra ";
+// const passangerLower = passanger.toLowerCase();
+// const passangerCorrect =
+//   passangerLower[0].toUpperCase() + passangerLower.slice(1);
+// console.log(passangerCorrect);
+
+// // Comparing emails
+
+// let email = "daulatjajra@gmail.com";
+// let loginEmail = "   DauLATJAJra@GMAIL.coM  \n ";
+
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
+// console.log(normalizedEmail === email); // true
+
+// // Checking
+
+// const checkBaggage = (item) => {
+//   let baggage = item.toLowerCase();
+//   if (baggage.includes("knife") || baggage.includes("gun"))
+//     console.log("You are not allowed on board");
+//   else console.log("Welcome on aboard");
+// };
+// checkBaggage("I have a laptop, some food and pocket knife ");
+// checkBaggage("socks and camera");
+// checkBaggage("Got some snacks and a gun for protection");
+///////////////////
+
+// Split and join
+
 ///////////////////////
 // 9. Sets : ( .add, .delete, .has, .size, .clear())
 // let num = [1, 2, 2, 2, 4, 5, 2, 5, 6, 7, 8, 9, 10];
@@ -8,6 +82,9 @@
 // console.log(unique);
 
 // // a. Adding and deleting elements
+// let set1 = new Set();
+// set1.add(1);
+// console.log(set1.has("1")); // false
 
 // let computer = new Set();
 // computer.add("Keyboard");
