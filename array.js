@@ -69,35 +69,35 @@
 //     : console.log(`You withdrew ${Math.abs(movement)}`);
 // });
 
-// forEach Method with sets and maps
-// map
-const currencies = new Map([
-  ["USD", "United States dollar"],
-  ["EUR", "Euro"],
-  ["GBP", "Pound Sterling"],
-  ["Rupee", "Indian"],
-]);
+// // forEach Method with sets and maps
+// // map
+// const currencies = new Map([
+//   ["USD", "United States dollar"],
+//   ["EUR", "Euro"],
+//   ["GBP", "Pound Sterling"],
+//   ["Rupee", "Indian"],
+// ]);
 
-currencies.forEach(function (value, key, map) {
-  console.log(`${key} : ${value}`);
-});
+// currencies.forEach(function (value, key, map) {
+//   console.log(`${key} : ${value}`);
+// });
 
-// set
+// // set
 
-let currenciesUnique = new Set([
-  "USD",
-  "Rupee",
-  "USD",
-  "Rupee",
-  "GBP",
-  "Rupee",
-  "EUR",
-  "Rupee",
-  "GBP",
-  "Rupee",
-]);
+// let currenciesUnique = new Set([
+//   "USD",
+//   "Rupee",
+//   "USD",
+//   "Rupee",
+//   "GBP",
+//   "Rupee",
+//   "EUR",
+//   "Rupee",
+//   "GBP",
+//   "Rupee",
+// ]);
 
-console.log(currenciesUnique);
-currenciesUnique.forEach(function (value, _, map) {
-  console.log(`${value} : ${value}`);
-});
+// console.log(currenciesUnique);
+// currenciesUnique.forEach(function (value, _, map) {
+//   console.log(`${value} : ${value}`);
+// });
