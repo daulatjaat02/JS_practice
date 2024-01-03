@@ -51,17 +51,53 @@
 
 /////////////////////////////////////////////////////////////////////////
 
-// 7. ForEach Method
-let movements = [200, 450, -400, 3000, -600, -130, 70, 1300];
+// // 7. ForEach Method
+// let movements = [200, 450, -400, 3000, -600, -130, 70, 1300];
 
-// for (let movement in movements) {
+// // for (let movement in movements) {
+// for (const [i, movement] of movements.entries()) {
 //   movements[movement] > 0
-//     ? console.log(`You deposited ${movements[movement]}`)
-//     : console.log(`You withdrew ${Math.abs(movements[movement])}`);
+//     ? console.log(`Movement ${i + 1} : You deposited ${movements[movement]}`)
+//     : console.log(
+//         `Movement ${i + 1} : You withdrew ${Math.abs(movements[movement])}`
+//       );
 // }
 
-movements.forEach(function (movement) {
-  movement > 0
-    ? console.log(`You deposited ${movement}`)
-    : console.log(`You withdrew ${Math.abs(movement)}`);
+// movements.forEach(function (movement) {
+//   movement > 0
+//     ? console.log(`You deposited ${movement}`)
+//     : console.log(`You withdrew ${Math.abs(movement)}`);
+// });
+
+// forEach Method with sets and maps
+// map
+const currencies = new Map([
+  ["USD", "United States dollar"],
+  ["EUR", "Euro"],
+  ["GBP", "Pound Sterling"],
+  ["Rupee", "Indian"],
+]);
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key} : ${value}`);
+});
+
+// set
+
+let currenciesUnique = new Set([
+  "USD",
+  "Rupee",
+  "USD",
+  "Rupee",
+  "GBP",
+  "Rupee",
+  "EUR",
+  "Rupee",
+  "GBP",
+  "Rupee",
+]);
+
+console.log(currenciesUnique);
+currenciesUnique.forEach(function (value, _, map) {
+  console.log(`${value} : ${value}`);
 });
