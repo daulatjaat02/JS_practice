@@ -101,3 +101,121 @@
 // currenciesUnique.forEach(function (value, _, map) {
 //   console.log(`${value} : ${value}`);
 // });
+
+// ///////////////////////////////////////////
+// // Map, reduce and filter
+
+// let numbers = [1, 2, 3, 4, 5];
+// let square = numbers.map((num) => num ** 2);
+// console.log(square);
+
+// let evenNumbers = numbers.filter((num) => num % 2 === 0);
+// console.log(evenNumbers);
+
+// let sum = numbers.reduce((acc, num) => acc + num, 0);
+// console.log(sum);
+
+// // combination
+// let result = numbers
+//   .filter((num) => num % 2 === 0)
+//   .map((num) => num ** 2)
+//   .reduce((acc, num) => acc + num, 0);
+// console.log(result);
+
+//////////////////////////////////////////////////////////////////
+// The map method
+// the Euro to US Doller
+
+// let euroToUsd = 1.1;
+// let movementsUSD = movements.map(function (mov) {
+//   return mov * euroToUsd;
+// });
+/// Arrow function
+// let movementUSDE = movements.map((mov) => mov * euroToUsd);
+// console.log(movementUSDE);
+
+// console.log(movements);
+// console.log(movementsUSD);
+
+// // try with for loop
+// let movementsUSDfor = [];
+// for (let mov of movements) {
+//   movementsUSDfor.push(mov * euroToUsd);
+// }
+// console.log(movementsUSDfor);
+
+// Got all things in a array not one by one : Didn't create a side-effects
+// let movementDescriptions = movements.map((mov, i, arr) => {
+//   let movType = mov > 0 ? "deposited" : "withdrew";
+//   return `Movement ${i + 1} : You ${movType} ${Math.abs(mov)}`;
+// });
+// console.log(movementDescriptions);
+
+//////////////////////////////////////////
+// map() Examples
+
+// 1. Doubling each element in an array
+let numbers = [1, 2, 3, 4, 5, 6, 7];
+let square = numbers.map((num) => num * num);
+console.log(square);
+
+// 2. Converting strings to upperCase
+let names = ["Daulat", "Muskan", "Manisha", "Suman", "Puspa", "Yash"];
+let UpperCase = names.map((word) => word.toUpperCase());
+console.log(UpperCase);
+
+//3. Extracting values from an array of objects
+
+let students = [
+  { name: "Daulat", age: 20, city: "Jaipur" },
+  { name: "Puspa", age: 25, city: "Udaipur" },
+  { name: "Manish", age: 20, city: "Jodhpur" },
+];
+let girls = [
+  { name: "Keya", age: 20, city: "Jaipur" },
+  { name: "Puspa", age: 25, city: "Udaipur" },
+  { name: "Jublina", age: 20, city: "Jodhpur" },
+];
+
+let studentsName = students.map((students) => students.name);
+let girlsName = girls.map((students) => students.name);
+
+console.log(studentsName);
+console.log(girlsName);
+
+// 4. Calculating square-roots
+let squares = [9, 16, 25, 36, 49, 64];
+let squareRoots = squares.map((square) => Math.sqrt(square));
+console.log(squareRoots);
+
+// 5. Using map with index parameter
+let languages = ["JavaScript", "Python", "C", "C++", "Java", "PHP"];
+let languagesIndex = languages.map((lang, i) => `${i + 1} - ${lang}`);
+console.log(languagesIndex);
+
+// 6. Mapping over an array of objects
+
+let users = [
+  { id: 1, name: "Daulat", age: 20 },
+  { id: 2, name: "Puspa", age: 25 },
+  { id: 3, name: "Manish", age: 20 },
+];
+
+let ids = users.map((users) => users.id);
+console.log(ids);
+
+// 7. Transforming and filterin using map and filter
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+let SqaureEvens = numbers.filter((sum) => sum % 2 === 0).map((sum) => sum ** 2);
+console.log(SqaureEvens);
+
+// 8. using 'thisArg' to double values with a custom mulitplier
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+let mulitplier = 3;
+let multiplieNumbers = numbers.map(function (num) {
+  return this * num;
+}, mulitplier);
+console.log(multiplieNumbers);
