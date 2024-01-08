@@ -240,39 +240,167 @@ let movements = [200, 450, -400, 3000, -600, -130, 70, 1300];
 
 // Examples :
 
-// 1. filtering even numbers
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let evenNumbers = numbers.filter((num) => num % 2 === 0);
-console.log(evenNumbers);
+// // 1. filtering even numbers
+// let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let evenNumbers = numbers.filter((num) => num % 2 === 0);
+// console.log(evenNumbers);
 
-// filtering name starting with D
-let names = [
-  "David",
-  "Dayal",
-  "Priya",
-  "Dipak",
-  "Puspa",
-  "Daulat",
-  "Pratik",
-  "Dulal",
-  "Denaas",
-  "Muskaan",
-];
+// // filtering name starting with D
+// let names = [
+//   "David",
+//   "Dayal",
+//   "Priya",
+//   "Dipak",
+//   "Puspa",
+//   "Daulat",
+//   "Pratik",
+//   "Dulal",
+//   "Denaas",
+//   "Muskaan",
+// ];
 
-let Dnames = names.filter((name) => name.charAt(0) === "D");
-console.log(Dnames);
+// let Dnames = names.filter((name) => name.charAt(0) === "D");
+// console.log(Dnames);
 
-// Filtering objects with a certain property value
+// // Filtering objects with a certain property value
 
-let products = [
-  { product: "Gun", price: 1200 },
-  { product: "Laptop", price: 500 },
-  { product: "Watch", price: 100 },
-  { product: "Phone", price: 800 },
-  { product: "Book", price: 120 },
-];
+// let products = [
+//   { product: "Gun", price: 1200 },
+//   { product: "Laptop", price: 500 },
+//   { product: "Watch", price: 100 },
+//   { product: "Phone", price: 800 },
+//   { product: "Book", price: 120 },
+// ];
 
-let affordableProducts = products.filter((products) => products.price < 500);
-console.log(affordableProducts);
+// let affordableProducts = products.filter((products) => products.price < 500);
+// console.log(affordableProducts);
 
-// filtering based on index
+// // filtering based on index
+// numbers = [10, 20, 30, 40, 50, 60, 70];
+
+// let oddNumbersIndex = numbers.filter((num, i) => i % 2 === 0);
+// console.log(oddNumbersIndex);
+
+// ////////////////////////////////////////////////////////////////////////
+// //The reduce() Method
+
+// console.log(movements);
+
+// // accumulator just like a SHOWBALL
+// let balance = movements.reduce((acc, mov, i) => {
+//   console.log(`Iteration : ${i} : ${acc}`);
+//   return acc + mov;
+// }, 0);
+// console.log(balance);
+
+// // With array function
+// let balance2 = movements.reduce((acc, mov, i) => acc + mov);
+// console.log(balance2);
+
+// // Do this thing manually
+// let balance = 0;
+// for (let mov of movements) {
+//   balance += mov;
+// }
+// console.log(balance);
+
+// get the maximum value of the array here
+
+// let max = movements.reduce((acc, mov) => (acc > mov ? acc : mov), movements[0]);
+// console.log(max);
+
+////////////////////////////////////////////////////////////////////////////
+
+// // The magic of chaining methods ( map, filter, reduce )
+
+// let euroToUsd = 1.1;
+
+// let totalDepositsUSD = movements
+//   .filter((mov) => mov > 0)
+//   .map((mov) => mov * euroToUsd)
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(totalDepositsUSD);
+
+// The Find Method
+// let firstWithdrawa = movements.find((mov) => mov < 0);
+// console.log(firstWithdrawa);
+
+// With for loop
+// let firstWithdrawal;
+// for (let mov of movements) {
+//   if (mov < 0) {
+//     firstWithdrawal = mov;
+//   }
+// }
+// console.log(movements);
+// console.log(firstWithdrawal);
+
+// find Index Method
+
+// // some and every method in js
+// console.log(movements);
+// // Equality
+// console.log(movements.includes(-130));
+
+// // SOME : Condition
+// let anyDeposits = movements.some((mov) => mov > 4000);
+// console.log(anyDeposits);
+
+// // Every
+// console.log(movements.every((mov) => mov > 0));
+// console.log(account4.movements.every((mov) => mov > 0));
+
+// // Separate Callback()
+// let deposit = (mov) => mov > 0;
+// console.log(movements.some(deposit));
+// console.log(movements.every(deposit));
+// console.log(movements.filter(deposit));
+
+//////
+// // Flat and FlatMap method
+
+// let arr = [[1, 2, 3], [4, 5, 6], 7, 8, [9, 10]];
+// console.log(arr.flat());
+// let arrDeep = [[1, [2, [2, 2], [3, 3]]], [[4, 5], 6], 7, 8, [9, 10]];
+// console.log(arrDeep.flat(3)); // inside the flat the level no : which is 3 for arrDeep
+
+// // chaining
+// // With flat method
+// let overalBalance = accounts
+//   .map((acc) => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
+
+// FLATMAP : The combination of the map and flat
+// // with flatmap method
+// let overalBalance = accounts
+//   .flatMap((acc) => acc.movements) // just for the level one
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
+
+//////////////////////////////////////////////////
+// // sorting in js
+// // With Strings
+// let owners = ["Jonas", "Zach", "Adam", "Martha"];
+// console.log(owners.sort()); // Muted the original array
+
+// // With Numbers
+// let numbers = [323, 5, 34, 64, 7, 7, 34, 3, 7, 9, 1, 1, 0, 45, 3, 455, 89];
+// console.log(numbers.sort());
+// console.log(movements.sort()); // sorted like strings
+
+// // return < 0, A, B (keep order)
+// // return > 0, B, A (keep order)
+
+// // Assending
+// movements.sort((a, b) => a - b);
+// console.log(movements);
+// // Desending
+// movements.sort((a, b) => b - a);
+// console.log(movements);
+
+
+// More ways of creating and filling arrays
+
+// Empty arrays + fill method 
