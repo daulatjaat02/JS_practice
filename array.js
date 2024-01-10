@@ -400,7 +400,44 @@ let movements = [200, 450, -400, 3000, -600, -130, 70, 1300];
 // movements.sort((a, b) => b - a);
 // console.log(movements);
 
-
+//////////////////////////////////////////////////////
 // More ways of creating and filling arrays
 
-// Empty arrays + fill method 
+// Empty arrays + fill method
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+// let x = new Array(7);
+// console.log(x);
+
+// // can't add any call method like : map, filter, ..............
+// // Only one mehtod is working for it : fill()
+
+// x.fill(1); // Muted the original one
+// console.log(x);
+
+// x.fill(1, 3, 5); // (fill, start, end(notIncluded))
+// // arr.fill(23, 4, 6);
+// arr.fill(23, 2, 6);
+// console.log(arr);
+
+// // array.from() Mehthod
+// let y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
+
+// let z = Array.from({ length: 7 }, (_, i) => i + 1); // The underscore(_) : not use this parameter
+
+// console.log(z);
+
+// // Creating an array using the Array constructor
+// const numbers = new Array(1, 2, 3, 4, 5);
+
+// // Using map to square each element
+// const squaredNumbers = numbers.map((num) => num ** 2);
+// console.log(squaredNumbers); // Output: [1, 4, 9, 16, 25]
+
+// // Using filter to get even numbers
+// const evenNumbers = numbers.filter((num) => num % 2 === 0);
+// console.log(evenNumbers); // Output: [2, 4]
+
+// // Using reduce to calculate the sum
+// const sum = numbers.reduce((acc, num) => acc + num, 0);
+// console.log(sum); // Output: 15
