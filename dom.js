@@ -97,3 +97,23 @@ logo.classList.add("d");
 logo.classList.remove("d");
 logo.classList.contains("d");
 logo.classList.toggle("d");
+
+// Events : Three ways to add events
+
+// mouseenter
+let h1 = document.querySelector("h1");
+
+let alertH1 = (e) => {
+  alert("Great! You are reading the heading");
+  // h1.removeEventListener("mouseenter", alertH1);
+};
+h1.addEventListener("mouseenter", alertH1);
+
+setTimeout(() => {
+  h1.removeEventListener("mouseenter", alertH1);
+}, 3000);
+
+// h1.onmouseenter = alertH1;
+
+// In html
+// <h1 onclick="alertH1()"></h1>
