@@ -18,4 +18,4 @@
 // console.log(isNaN("daulat")); // true
 // console.log(isNaN(26)); // false
 let ceiledNumber = Math.ceil(4.2);
-console.log(ceiledNumber); // Output: 5
+// console.log(ceiledNumber); // Output: 5
