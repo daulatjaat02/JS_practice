@@ -3,19 +3,19 @@
 // 1. Constructor functions and the "new" Operator
 // convention : always start with capital word
 // A array function not works as a constructor function
-let Person = function (firstName, birthYear) {
-  // console.log(this);
-  ` // Instance Properties`;
-  this.firstName = firstName;
-  this.birthYear = birthYear;
+// let Person = function (firstName, birthYear) {
+//   // console.log(this);
+//   // ` // Instance Properties`;
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
 
-  //Methods : Never do this (Never create a method inside of a constructor function )
-  // this.calcAGe = function () {
-  //   console.log(2037 - this.birthYear);
-  // };
-};
-let daulat = new Person("Daulat", "2004"); // Always call using the 'new' keyword
-let kaif = new Person("Kaif", "2006"); // Always call using the 'new' keyword
+//Methods : Never do this (Never create a method inside of a constructor function )
+// this.calcAGe = function () {
+//   console.log(2037 - this.birthYear);
+// };
+// };
+// let daulat = new Person("Daulat", "2004"); // Always call using the 'new' keyword
+// let kaif = new Person("Kaif", "2006"); // Always call using the 'new' keyword
 // console.log(daulat);
 
 // when we call the function with the new keyword then behind the scene there are four things happen :
@@ -43,9 +43,9 @@ let kaif = new Person("Kaif", "2006"); // Always call using the 'new' keyword
 
 // console.log(Person.prototype); // Prototype property of the constructor fuction
 
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
+// Person.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
 
 // daulat.calcAge(); // we got 33 because of prototypal inheritance
 // kaif.calcAge();
@@ -92,3 +92,117 @@ Person.prototype.calcAge = function () {
 
 // // random function
 // console.dir((x) => x + 2);
+
+////////////////////////////////////////////////////////////////////////
+
+// ES6 Classes : Special type of functions(without arguments )
+// class Expression
+// let PersonCl = class {};
+
+// Class Declaration
+// class PersonCl {
+//   constructor(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   }
+//   //Methods will be added to .prototype property
+//   calcAge() {
+//     console.log(2037 - this.birthYear);
+//   }
+//   greet() {
+//     console.log(`Hey ${this.firstName}`);
+//   }
+// }
+// let daulat = new PersonCl("Daulat", 2004);
+// console.log(daulat);
+// daulat.calcAge();
+// console.log(daulat.__proto__ === PersonCl.prototype); // true
+
+// // add method manually in .prototype property
+// // PersonCl.prototype.greet = function () {
+// //   console.log(`Hey ${this.firstName}`);
+// //   console.log(this);
+// // };
+// daulat.greet();
+
+////
+// 1. Classes are NOT hoisted (can't call before declare)
+// 2. Classes are first-class citizens (can be used as a variable, arguments, or return value)
+// 3. Classes are executed in strict mode
+
+/////////////////////////////////////////////////////////////////////////
+// Assessor Properties :  Setters and Getters (common for all objects)
+
+// Setter and Getter with Regular Objects
+let account = {
+  owner: "Daulat",
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+  set latest(mov) {
+    // must have a parameter
+    this.movements.push(mov);
+  },
+};
+
+console.log(account.latest); // use getter
+account.latest = 560; // use setter
+console.log(account.movements);
+
+// Setter and Getter with Classes
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+  //Instance Methods
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+  // Add getter for age property
+  get age() {
+    return 2037 - this.birthYear;
+  }
+  // Add setter to validate the fullName
+  // set a property that already exists
+  set fullName(name) {
+    if (name.includes(" ")) this._fullName = name;
+    // (_) its just a conventio not a javascript feature
+    else alert(`${name} is not a full name!`);
+  }
+  // add getter for fullName property
+  get fullName() {
+    return this._fullName;
+  }
+
+  // Static Methods
+  static hey() {
+    console.log("Hey there!");
+    console.log(this);
+  }
+}
+
+let daulat = new PersonCl("Daulat Jajra", 2004);
+console.log(daulat);
+daulat.greet();
+daulat.calcAge();
+// use getter : use like an property
+console.log(daulat.age);
+
+// Setters and Getters are very useful for Data Validation
+let kaif = new PersonCl("Kaif khan", 2006);
+console.log(kaif);
+
+/////////////////////////////////////////////////////////
+
+// Static Method
+Array.from(document.querySelectorAll("h2"));
+// from is NOT for the arrays like ([32, 45, 23, 12, 5].from())
+Number.parseFloat(12); // It just a attach with Number object
+// daulat.hey();
+// PersonCl.hey();
