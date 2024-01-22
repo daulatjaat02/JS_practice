@@ -147,9 +147,9 @@ let account = {
   },
 };
 
-console.log(account.latest); // use getter
+// console.log(account.latest); // use getter
 account.latest = 560; // use setter
-console.log(account.movements);
+// console.log(account.movements);
 
 // Setter and Getter with Classes
 class PersonCl {
@@ -188,15 +188,15 @@ class PersonCl {
 }
 
 let daulat = new PersonCl("Daulat Jajra", 2004);
-console.log(daulat);
-daulat.greet();
-daulat.calcAge();
+// console.log(daulat);
+// daulat.greet();
+// daulat.calcAge();
 // use getter : use like an property
-console.log(daulat.age);
+// console.log(daulat.age);
 
 // Setters and Getters are very useful for Data Validation
 let kaif = new PersonCl("Kaif khan", 2006);
-console.log(kaif);
+// console.log(kaif);
 
 /////////////////////////////////////////////////////////
 
@@ -206,3 +206,16 @@ Array.from(document.querySelectorAll("h2"));
 Number.parseFloat(12); // It just a attach with Number object
 // daulat.hey();
 // PersonCl.hey();
+/////////////////////////////////////////////////////////////////
+
+// Object.create()
+let PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+};
+daulat = Object.create(PersonProto); // {} (empy object)
+console.log(daulat);
+daulat.name = "Daualt";
+daulat.birthYear = "2004";
+daulat.calcAge();
