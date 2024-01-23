@@ -94,6 +94,7 @@ let EV = function (make, speed, charge) {
 };
 // Link prototypes
 EV.prototype = Object.create(Car.prototype);
+
 EV.prototype.chargeBattery = function (chargeTo) {
   this.charge = chargeTo;
 };
@@ -106,8 +107,8 @@ EV.prototype.accelerate = function () {
 };
 
 let tesla = new EV("Tesla", 120, 23);
-tesla.accelerate();
-tesla.chargeBattery(90);
-tesla.accelerate();
-tesla.accelerate();
-console.log(tesla);
+// tesla.accelerate();
+// tesla.chargeBattery(90);
+// tesla.accelerate();
+// tesla.accelerate();
+// console.log(tesla);

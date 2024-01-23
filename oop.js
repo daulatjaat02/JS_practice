@@ -152,40 +152,40 @@ account.latest = 560; // use setter
 // console.log(account.movements);
 
 // Setter and Getter with Classes
-class PersonCl {
-  constructor(fullName, birthYear) {
-    this.fullName = fullName;
-    this.birthYear = birthYear;
-  }
-  //Instance Methods
-  calcAge() {
-    console.log(2037 - this.birthYear);
-  }
-  greet() {
-    console.log(`Hey ${this.firstName}`);
-  }
-  // Add getter for age property
-  get age() {
-    return 2037 - this.birthYear;
-  }
-  // Add setter to validate the fullName
-  // set a property that already exists
-  set fullName(name) {
-    if (name.includes(" ")) this._fullName = name;
-    // (_) its just a conventio not a javascript feature
-    else alert(`${name} is not a full name!`);
-  }
-  // add getter for fullName property
-  get fullName() {
-    return this._fullName;
-  }
+// class PersonCl {
+//   constructor(fullName, birthYear) {
+//     this.fullName = fullName;
+//     this.birthYear = birthYear;
+//   }
+//   //Instance Methods
+//   calcAge() {
+//     console.log(2037 - this.birthYear);
+//   }
+//   greet() {
+//     console.log(`Hey ${this.firstName}`);
+//   }
+//   // Add getter for age property
+//   get age() {
+//     return 2037 - this.birthYear;
+//   }
+//   // Add setter to validate the fullName
+//   // set a property that already exists
+//   set fullName(name) {
+//     if (name.includes(" ")) this._fullName = name;
+//     // (_) its just a conventio not a javascript feature
+//     else alert(`${name} is not a full name!`);
+//   }
+//   // add getter for fullName property
+//   get fullName() {
+//     return this._fullName;
+//   }
 
-  // Static Methods
-  static hey() {
-    console.log("Hey there!");
-    console.log(this);
-  }
-}
+//   // Static Methods
+//   static hey() {
+//     console.log("Hey there!");
+//     console.log(this);
+//   }
+// }
 
 // let daulat = new PersonCl("Daulat Jajra", 2004);
 // console.log(daulat);
@@ -195,7 +195,7 @@ class PersonCl {
 // console.log(daulat.age);
 
 // Setters and Getters are very useful for Data Validation
-let kaif = new PersonCl("Kaif khan", 2006);
+// let kaif = new PersonCl("Kaif khan", 2006);
 // console.log(kaif);
 
 /////////////////////////////////////////////////////////
@@ -223,40 +223,101 @@ Number.parseFloat(12); // It just a attach with Number object
 /////////////////////////////////////////////////////////////////////////
 
 // Inheritance between 'CLASSES' : Using Constructor functions
-let Person = function (firstName, birthYear) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
-};
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
+// let Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
+// };
+// Person.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
 
-let Student = function (firstName, birthYear, course) {
-  // this.firstName = firstName;
-  // this.birthYear = birthYear;
-  // Person(firstName, birthYear); // Doesn't work
-  Person.call(this, firstName, birthYear); // add 'call()' method with 'this' keyword
-  this.course = course;
-};
-// Linking Prototypes
-Student.prototype = Object.create(Person.prototype);
+// let Student = function (firstName, birthYear, course) {
+//   // this.firstName = firstName;
+//   // this.birthYear = birthYear;
+//   // Person(firstName, birthYear); // Doesn't work
+//   Person.call(this, firstName, birthYear); // add 'call()' method with 'this' keyword
+//   this.course = course;
+// };
+// // Linking Prototypes
+// Student.prototype = Object.create(Person.prototype);
 
-Student.prototype.introduce = function () {
-  console.log(`My name is ${this.firstName} and I study ${this.course}`);
-};
+// Student.prototype.introduce = function () {
+//   console.log(`My name is ${this.firstName} and I study ${this.course}`);
+// };
 
-let daulat = new Student("Daulat", 2004, "Computer Science");
-console.log(daulat);
-daulat.introduce();
-daulat.calcAge();
+// let daulat = new Student("Daulat", 2004, "Computer Science");
+// console.log(daulat);
+// daulat.introduce();
+// daulat.calcAge();
 
-console.log(daulat.__proto__);
-console.log(daulat.__proto__.__proto__);
+// console.log(daulat.__proto__);
+// console.log(daulat.__proto__.__proto__);
 
-console.log(daulat instanceof Student); // true
-console.log(daulat instanceof Person); // true
-console.log(daulat instanceof Object); // true
+// console.log(daulat instanceof Student); // true
+// console.log(daulat instanceof Person); // true
+// console.log(daulat instanceof Object); // true
 
-Student.prototype.constructor = Student;
+// Student.prototype.constructor = Student;
 
-console.dir(Student.prototype.constructor);
+// console.dir(Student.prototype.constructor);
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+//Inheritance between 'classes' : with ES6 Classes
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+  //Instance Methods
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+  // Add getter for age property
+  get age() {
+    return 2037 - this.birthYear;
+  }
+  set fullName(name) {
+    if (name.includes(" ")) this._fullName = name;
+    else alert(`${name} is not a full name!`);
+  }
+  // add getter for fullName property
+  get fullName() {
+    return this._fullName;
+  }
+
+  // Static Methods
+  static hey() {
+    console.log("Hey there!");
+  }
+}
+
+// Student  Calss
+class StudentCl extends PersonCl {
+  constructor(firstName, birthYear, course) {
+    // Always need to happen first
+    super(firstName, birthYear);
+    this.course = course;
+  }
+  introduce() {
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+  calcAge() {
+    console.log(
+      `I'm ${
+        2037 - this.birthYear
+      } years old, but as a student I feel more like ${
+        2037 - this.birthYear + 10
+      }`
+    );
+  }
+}
+
+let Divya = new StudentCl("Divya Jajra", 2002, "Computer Science");
+console.log(Divya);
+Divya.introduce();
+Divya.calcAge();
