@@ -187,7 +187,7 @@ class PersonCl {
   }
 }
 
-let daulat = new PersonCl("Daulat Jajra", 2004);
+// let daulat = new PersonCl("Daulat Jajra", 2004);
 // console.log(daulat);
 // daulat.greet();
 // daulat.calcAge();
@@ -209,13 +209,54 @@ Number.parseFloat(12); // It just a attach with Number object
 /////////////////////////////////////////////////////////////////
 
 // Object.create()
-let PersonProto = {
-  calcAge() {
-    console.log(2037 - this.birthYear);
-  },
+// let PersonProto = {
+//   calcAge() {
+//     console.log(2037 - this.birthYear);
+//   },
+// };
+// daulat = Object.create(PersonProto); // {} (empy object)
+// // console.log(daulat);
+// daulat.name = "Daualt";
+// daulat.birthYear = "2004";
+// // daulat.calcAge();
+
+/////////////////////////////////////////////////////////////////////////
+
+// Inheritance between 'CLASSES' : Using Constructor functions
+let Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
 };
-daulat = Object.create(PersonProto); // {} (empy object)
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+let Student = function (firstName, birthYear, course) {
+  // this.firstName = firstName;
+  // this.birthYear = birthYear;
+  // Person(firstName, birthYear); // Doesn't work
+  Person.call(this, firstName, birthYear); // add 'call()' method with 'this' keyword
+  this.course = course;
+};
+// Linking Prototypes
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+let daulat = new Student("Daulat", 2004, "Computer Science");
 console.log(daulat);
-daulat.name = "Daualt";
-daulat.birthYear = "2004";
+daulat.introduce();
 daulat.calcAge();
+
+console.log(daulat.__proto__);
+console.log(daulat.__proto__.__proto__);
+
+console.log(daulat instanceof Student); // true
+console.log(daulat instanceof Person); // true
+console.log(daulat instanceof Object); // true
+
+Student.prototype.constructor = Student;
+
+console.dir(Student.prototype.constructor);

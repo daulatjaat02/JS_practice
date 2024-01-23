@@ -64,9 +64,9 @@ class CarCl {
 }
 
 let ford = new CarCl("ford", 120);
-console.log(ford.speedUS);
-ford.accelerate();
-ford.accelerate();
-ford.break();
-ford.speedUS = 50;
-console.log(ford);
+// console.log(ford.speedUS);
+// ford.accelerate();
+// ford.accelerate();
+// ford.break();
+// ford.speedUS = 50;
+// console.log(ford);
