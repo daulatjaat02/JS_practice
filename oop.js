@@ -431,3 +431,6 @@ console.log(acc1.getMovements());
 
 acc1.deposits(500).deposits(200).withdraw(50).requestLoan(52000).withdraw(1200);
 console.log(acc1.getMovements());
+
+////////////////////////////////////////////////////////////////
+// Summery : ES6 Classes

@@ -39,6 +39,7 @@
 // BMW.break();
 // Mercedes.break();
 
+/////////////////////////////////////////////////////
 // Challange NO 2
 
 // class CarCl {
@@ -71,44 +72,103 @@
 // ford.speedUS = 50;
 // console.log(ford);
 
-let Car = function (make, speed) {
-  this.make = make;
-  this.speed = speed;
-};
+/////////////////////////////////////////////
+// Challange No 3
+// let Car = function (make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
 
-// Accelerate
-Car.prototype.accelerate = function () {
-  this.speed += 20;
-  console.log(`${this.make} is going at ${this.speed}`);
-};
+// // Accelerate
+// Car.prototype.accelerate = function () {
+//   this.speed += 20;
+//   console.log(`${this.make} is going at ${this.speed}`);
+// };
 
-Car.prototype.break = function () {
-  this.speed -= 5;
-  console.log(`${this.make} is going at ${this.speed}`);
-};
+// Car.prototype.break = function () {
+//   this.speed -= 5;
+//   console.log(`${this.make} is going at ${this.speed}`);
+// };
 
-//EV
-let EV = function (make, speed, charge) {
-  Car.call(this, make, speed);
-  this.charge = charge;
-};
-// Link prototypes
-EV.prototype = Object.create(Car.prototype);
+// //EV
+// let EV = function (make, speed, charge) {
+//   Car.call(this, make, speed);
+//   this.charge = charge;
+// };
+// // Link prototypes
+// EV.prototype = Object.create(Car.prototype);
 
-EV.prototype.chargeBattery = function (chargeTo) {
-  this.charge = chargeTo;
-};
-EV.prototype.accelerate = function () {
-  this.speed += 20;
-  this.charge--;
-  console.log(
-    `${this.make} is going at ${this.speed}, with a carge of ${this.charge}`
-  );
-};
+// EV.prototype.chargeBattery = function (chargeTo) {
+//   this.charge = chargeTo;
+// };
+// EV.prototype.accelerate = function () {
+//   this.speed += 20;
+//   this.charge--;
+//   console.log(
+//     `${this.make} is going at ${this.speed}, with a carge of ${this.charge}`
+//   );
+// };
 
-let tesla = new EV("Tesla", 120, 23);
+// let tesla = new EV("Tesla", 120, 23);
 // tesla.accelerate();
 // tesla.chargeBattery(90);
 // tesla.accelerate();
 // tesla.accelerate();
 // console.log(tesla);
+
+/////////////////////////////////////////////////////////
+// Challange No 4
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+  }
+  break() {
+    this.speed -= 5;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+    return this;
+  }
+
+  get speedUS() {
+    return parseFloat(this.speed) / 1.6;
+  }
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+
+class EVCl extends CarCl {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    return this;
+  }
+  accelerate() {
+    this.speed += 20;
+    this.#charge--;
+    console.log(
+      `${this.make} is going at ${this.speed}, with a carge of ${
+        this.#charge
+      } %`
+    );
+    return this;
+  }
+}
+let Rivian = new EVCl("Rivian", 120, 23);
+Rivian.accelerate()
+  .accelerate()
+  .accelerate()
+  .break()
+  .chargeBattery(90)
+  .accelerate();
+console.log(Rivian);
+
+console.log(Rivian.speedUS);
