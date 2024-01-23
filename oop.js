@@ -318,6 +318,116 @@ class StudentCl extends PersonCl {
 }
 
 let Divya = new StudentCl("Divya Jajra", 2002, "Computer Science");
-console.log(Divya);
-Divya.introduce();
-Divya.calcAge();
+// console.log(Divya);
+// Divya.introduce();
+// Divya.calcAge();
+
+// Inheritance between 'Classes' : with Object.create()
+
+let PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+let Kaif = Object.create(PersonProto);
+
+let StudentProto = Object.create(PersonProto);
+StudentProto.init = function (firstName, birhtYear, course) {
+  PersonProto.init.call(this, firstName, birhtYear);
+  this.course = course;
+};
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+let jay = Object.create(StudentProto);
+
+// jay.init("Jay", 2004, "Computer Science");
+// jay.introduce();
+// jay.calcAge();
+//////////////////////////////////////////////////////////
+
+// Another class Example
+class Account {
+  // 1) Public Fields(Instances)
+  locale = navigator.language;
+
+  // 2) Private fields ( Instances )
+  #movements = [];
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    //Protected Property
+    this.#pin = pin;
+    // this._movements = [];
+    // this.locale = navigator.language;
+    //
+    // console.log(`Thanks for opening new account ${owner}`);
+  }
+  //3)  Public Methods (Interface)
+  getMovements() {
+    return this.#movements;
+  }
+
+  deposits(val) {
+    this.#movements.push(val);
+    return this;
+  }
+  withdraw(val) {
+    this.deposits(-val);
+    return this;
+  }
+
+  requestLoan(val) {
+    if (this.#approveLoan(val)) {
+      this.deposits(val);
+      console.log(`Your loan request is approved `);
+      return this;
+    }
+  }
+  static helper() {
+    console.log("Helper");
+  }
+  //4)  Private Methods
+  #approveLoan(val) {
+    return true;
+  }
+}
+let acc1 = new Account("Daulat", "EUR", 1111);
+// acc1.movements.push(500);
+// acc1.movements.push(-60);
+acc1.deposits(500);
+acc1.withdraw(60);
+acc1.requestLoan(1000);
+// acc1.approveLoan(1000);
+console.log(acc1);
+Account.helper();
+console.log(acc1.getMovements());
+////////////////////////////////////////////////////////////////////////////////////////
+
+// Encapsulation : Protected method and properties
+// Fake protection using by (_) like : _movements, _pin, _approveLoan...........
+
+///////////////////////////////////////////////////////////////////////////
+
+// Encapsulation : Private Class fields and methods
+
+// 1) Public fields
+// 2) Private fields
+// 3) Public methods
+// 4) Private methods
+// ( There is also the static version )
+// console.log(acc1.#movements);
+
+/////////////////////////////////////////////////////////////////////
+
+// Chaining Methods
+// return this; // to make methods chainable
+
+acc1.deposits(500).deposits(200).withdraw(50).requestLoan(52000).withdraw(1200);
+console.log(acc1.getMovements());
