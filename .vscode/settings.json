@@ -1,0 +1,4 @@
+{
+  "codeium.searchMaxWorkspaceFileCount": 500000,
+  "codeium.enableSearch": "default"
+}
