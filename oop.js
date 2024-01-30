@@ -85,7 +85,7 @@
 // Lion.makeSound(); // roar
 // cat.makeSound(); // meow
 
-///////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ///// 3. Implementing Prototypal inheritance
 
@@ -157,24 +157,24 @@
 
 //// with Object.create()
 
-let Animal = {
-  makeSound() {
-    console.log("Generic Animal Sound");
-  },
-};
+// let Animal = {
+//   makeSound() {
+//     console.log("Generic Animal Sound");
+//   },
+// };
 
-let genericAnimal = Object.create(Animal);
+// let genericAnimal = Object.create(Animal);
 
-let Dog = Object.create(Animal);
+// let Dog = Object.create(Animal);
 
-Dog.breed = "Labrador";
-Dog.bark = function () {
-  console.log("Woof! Woof!");
-};
+// Dog.breed = "Labrador";
+// Dog.bark = function () {
+//   console.log("Woof! Woof!");
+// };
 
-genericAnimal.makeSound(); // Generic Animal Sound
-Dog.makeSound(); // Generic Animal Sound
-Dog.bark(); // Woof! Woof!
+// genericAnimal.makeSound(); // Generic Animal Sound
+// Dog.makeSound(); // Generic Animal Sound
+// Dog.bark(); // Woof! Woof!
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 1. Constructor functions and the "new" Operator
