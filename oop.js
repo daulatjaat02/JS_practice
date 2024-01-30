@@ -1,6 +1,123 @@
 "use strict";
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+//// 1. Basic Example
+
+//// Example No : 1
+
+//// Defining a class
+// class Computer {
+//   constructor(brand, model, manufacture) {
+//     this.brand = brand;
+//     this.model = model;
+//     this.manufacture = manufacture;
+//   }
+
+//   //// method
+//   old() {
+//     console.log(2024 - this.manufacture);
+//   }
+// }
+
+// //// Creating instances of the class
+// let zebronics = new Computer("zebronics", "GA-Z590-AORUS-PRO-AX", 2015);
+// let hp = new Computer("hp", "GA-Z590-AORUS-PRO-AX", 2012);
+
+// //// Accessing properties and invoking methods
+// console.log(hp.model); // GA-Z590-AORUS-PRO-AX
+// hp.old(); // 12
+
+//// Example NO : 2
+
+// class Person {
+//   constructor(name, age, city, pinCode) {
+//     this.name = name;
+//     this.age = age;
+//     this.city = city;
+//     this.pinCode = pinCode;
+//   }
+
+//   sayHello() {
+//     console.log(
+//       `My name is ${this.name} and I am ${this.age} years old. I live in ${this.city} and my pin code is ${this.pinCode}`
+//     );
+//   }
+// }
+
+// let Daulat = new Person("Daulat", 21, "Jaipur", 320202);
+// let Muskan = new Person("Muskan", 21, "Delhi", 110011);
+
+// console.log(Muskan.city); // Delhi
+// console.log(Muskan.pinCode); // 110011
+
+// Daulat.sayHello(); // My name is Daulat and I am 21 years old. I live in Jaipur and my pin code is 320202
+// Muskan.sayHello(); // My name is Muskan and I am 21 years old. I live in Delhi and my pin code is 110011
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+//// 2. Prototype Inheritance
+
+// *) Basic Example  :
+// let animal = {
+//   sound: "Generic Sound",
+//   makeSound() {
+//     console.log(this.sound);
+//   },
+// };
+
+// let dog = Object.create(animal);
+// dog.sound = "woof!";
+
+// dog.makeSound(); // woof!
+
+// *) constructor function and Prototypes
+// function Animal(sound) {
+//   this.sound = sound;
+// }
+
+// Animal.prototype.makeSound = function () {
+//   console.log(this.sound);
+// };
+
+// let Lion = new Animal("roar");
+// let cat = new Animal("meow");
+
+// Lion.makeSound(); // roar
+// cat.makeSound(); // meow
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+///// 3. Implementing Prototypal inheritance
+// 1. with constructor function
+
+let Animal = function (name) {
+  this.name = name;
+};
+
+Animal.prototype.makeSound = function () {
+  console.log("Generic Animal Sound");
+};
+
+let genericAnimal = new Animal("Generic Animal");
+genericAnimal.makeSound(); // Generic Animal Sound
+
+let Dog = function (name, breed) {
+  Animal.call(this, name);
+  this.breed = breed;
+};
+
+Dog.prototype = Object.create(Animal.prototype);
+
+Dog.prototype.bark = function () {
+  console.log("woof! woof!");
+};
+
+let myDog = new Dog("Buddy", "Golden Retriever");
+myDog.makeSound(); // Generic Animal Sound
+myDog.bark(); // woof! woof!
+console.dir(Animal);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 1. Constructor functions and the "new" Operator
 // convention : always start with capital word
 // A array function not works as a constructor function
@@ -135,21 +252,21 @@
 // Assessor Properties :  Setters and Getters (common for all objects)
 
 // Setter and Getter with Regular Objects
-let account = {
-  owner: "Daulat",
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+// let account = {
+//   owner: "Daulat",
+//   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
 
-  get latest() {
-    return this.movements.slice(-1).pop();
-  },
-  set latest(mov) {
-    // must have a parameter
-    this.movements.push(mov);
-  },
-};
+//   get latest() {
+//     return this.movements.slice(-1).pop();
+//   },
+//   set latest(mov) {
+//     // must have a parameter
+//     this.movements.push(mov);
+//   },
+// };
 
 // console.log(account.latest); // use getter
-account.latest = 560; // use setter
+// account.latest = 560; // use setter
 // console.log(account.movements);
 
 // Setter and Getter with Classes
@@ -202,9 +319,9 @@ account.latest = 560; // use setter
 /////////////////////////////////////////////////////////
 
 // Static Method
-Array.from(document.querySelectorAll("h2"));
+// Array.from(document.querySelectorAll("h2"));
 // from is NOT for the arrays like ([32, 45, 23, 12, 5].from())
-Number.parseFloat(12); // It just a attach with Number object
+// Number.parseFloat(12); // It just a attach with Number object
 // daulat.hey();
 // PersonCl.hey();
 /////////////////////////////////////////////////////////////////
@@ -266,149 +383,149 @@ Number.parseFloat(12); // It just a attach with Number object
 
 //Inheritance between 'classes' : with ES6 Classes
 
-class PersonCl {
-  constructor(fullName, birthYear) {
-    this.fullName = fullName;
-    this.birthYear = birthYear;
-  }
-  //Instance Methods
-  calcAge() {
-    console.log(2037 - this.birthYear);
-  }
-  greet() {
-    console.log(`Hey ${this.firstName}`);
-  }
-  // Add getter for age property
-  get age() {
-    return 2037 - this.birthYear;
-  }
-  set fullName(name) {
-    if (name.includes(" ")) this._fullName = name;
-    else alert(`${name} is not a full name!`);
-  }
-  // add getter for fullName property
-  get fullName() {
-    return this._fullName;
-  }
+// class PersonCl {
+//   constructor(fullName, birthYear) {
+//     this.fullName = fullName;
+//     this.birthYear = birthYear;
+//   }
+//   //Instance Methods
+//   calcAge() {
+//     console.log(2037 - this.birthYear);
+//   }
+//   greet() {
+//     console.log(`Hey ${this.firstName}`);
+//   }
+//   // Add getter for age property
+//   get age() {
+//     return 2037 - this.birthYear;
+//   }
+//   set fullName(name) {
+//     if (name.includes(" ")) this._fullName = name;
+//     else alert(`${name} is not a full name!`);
+//   }
+//   // add getter for fullName property
+//   get fullName() {
+//     return this._fullName;
+//   }
 
-  // Static Methods
-  static hey() {
-    console.log("Hey there!");
-  }
-}
+//   // Static Methods
+//   static hey() {
+//     console.log("Hey there!");
+//   }
+// }
 
-// Student  Calss
-class StudentCl extends PersonCl {
-  constructor(firstName, birthYear, course) {
-    // Always need to happen first
-    super(firstName, birthYear);
-    this.course = course;
-  }
-  introduce() {
-    console.log(`My name is ${this.fullName} and I study ${this.course}`);
-  }
-  calcAge() {
-    console.log(
-      `I'm ${
-        2037 - this.birthYear
-      } years old, but as a student I feel more like ${
-        2037 - this.birthYear + 10
-      }`
-    );
-  }
-}
+// // Student  Calss
+// class StudentCl extends PersonCl {
+//   constructor(firstName, birthYear, course) {
+//     // Always need to happen first
+//     super(firstName, birthYear);
+//     this.course = course;
+//   }
+//   introduce() {
+//     console.log(`My name is ${this.fullName} and I study ${this.course}`);
+//   }
+//   calcAge() {
+//     console.log(
+//       `I'm ${
+//         2037 - this.birthYear
+//       } years old, but as a student I feel more like ${
+//         2037 - this.birthYear + 10
+//       }`
+//     );
+//   }
+// }
 
-let Divya = new StudentCl("Divya Jajra", 2002, "Computer Science");
-// console.log(Divya);
-// Divya.introduce();
-// Divya.calcAge();
+// let Divya = new StudentCl("Divya Jajra", 2002, "Computer Science");
+// // console.log(Divya);
+// // Divya.introduce();
+// // Divya.calcAge();
 
-// Inheritance between 'Classes' : with Object.create()
+// // Inheritance between 'Classes' : with Object.create()
 
-let PersonProto = {
-  calcAge() {
-    console.log(2037 - this.birthYear);
-  },
-  init(firstName, birthYear) {
-    this.firstName = firstName;
-    this.birthYear = birthYear;
-  },
-};
-let Kaif = Object.create(PersonProto);
+// let PersonProto = {
+//   calcAge() {
+//     console.log(2037 - this.birthYear);
+//   },
+//   init(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   },
+// };
+// let Kaif = Object.create(PersonProto);
 
-let StudentProto = Object.create(PersonProto);
-StudentProto.init = function (firstName, birhtYear, course) {
-  PersonProto.init.call(this, firstName, birhtYear);
-  this.course = course;
-};
-StudentProto.introduce = function () {
-  console.log(`My name is ${this.firstName} and I study ${this.course}`);
-};
-let jay = Object.create(StudentProto);
+// let StudentProto = Object.create(PersonProto);
+// StudentProto.init = function (firstName, birhtYear, course) {
+//   PersonProto.init.call(this, firstName, birhtYear);
+//   this.course = course;
+// };
+// StudentProto.introduce = function () {
+//   console.log(`My name is ${this.firstName} and I study ${this.course}`);
+// };
+// let jay = Object.create(StudentProto);
 
-// jay.init("Jay", 2004, "Computer Science");
-// jay.introduce();
-// jay.calcAge();
-//////////////////////////////////////////////////////////
+// // jay.init("Jay", 2004, "Computer Science");
+// // jay.introduce();
+// // jay.calcAge();
+// //////////////////////////////////////////////////////////
 
-// Another class Example
-class Account {
-  // 1) Public Fields(Instances)
-  locale = navigator.language;
+// // Another class Example
+// class Account {
+//   // 1) Public Fields(Instances)
+//   locale = navigator.language;
 
-  // 2) Private fields ( Instances )
-  #movements = [];
-  #pin;
+//   // 2) Private fields ( Instances )
+//   #movements = [];
+//   #pin;
 
-  constructor(owner, currency, pin) {
-    this.owner = owner;
-    this.currency = currency;
-    //Protected Property
-    this.#pin = pin;
-    // this._movements = [];
-    // this.locale = navigator.language;
-    //
-    // console.log(`Thanks for opening new account ${owner}`);
-  }
-  //3)  Public Methods (Interface)
-  getMovements() {
-    return this.#movements;
-  }
+//   constructor(owner, currency, pin) {
+//     this.owner = owner;
+//     this.currency = currency;
+//     //Protected Property
+//     this.#pin = pin;
+//     // this._movements = [];
+//     // this.locale = navigator.language;
+//     //
+//     // console.log(`Thanks for opening new account ${owner}`);
+//   }
+//   //3)  Public Methods (Interface)
+//   getMovements() {
+//     return this.#movements;
+//   }
 
-  deposits(val) {
-    this.#movements.push(val);
-    return this;
-  }
-  withdraw(val) {
-    this.deposits(-val);
-    return this;
-  }
+//   deposits(val) {
+//     this.#movements.push(val);
+//     return this;
+//   }
+//   withdraw(val) {
+//     this.deposits(-val);
+//     return this;
+//   }
 
-  requestLoan(val) {
-    if (this.#approveLoan(val)) {
-      this.deposits(val);
-      console.log(`Your loan request is approved `);
-      return this;
-    }
-  }
-  static helper() {
-    console.log("Helper");
-  }
-  //4)  Private Methods
-  #approveLoan(val) {
-    return true;
-  }
-}
-let acc1 = new Account("Daulat", "EUR", 1111);
-// acc1.movements.push(500);
-// acc1.movements.push(-60);
-acc1.deposits(500);
-acc1.withdraw(60);
-acc1.requestLoan(1000);
-// acc1.approveLoan(1000);
-console.log(acc1);
-Account.helper();
-console.log(acc1.getMovements());
+//   requestLoan(val) {
+//     if (this.#approveLoan(val)) {
+//       this.deposits(val);
+//       console.log(`Your loan request is approved `);
+//       return this;
+//     }
+//   }
+//   static helper() {
+//     console.log("Helper");
+//   }
+//   //4)  Private Methods
+//   #approveLoan(val) {
+//     return true;
+//   }
+// }
+// let acc1 = new Account("Daulat", "EUR", 1111);
+// // acc1.movements.push(500);
+// // acc1.movements.push(-60);
+// acc1.deposits(500);
+// acc1.withdraw(60);
+// acc1.requestLoan(1000);
+// // acc1.approveLoan(1000);
+// console.log(acc1);
+// Account.helper();
+// console.log(acc1.getMovements());
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // Encapsulation : Protected method and properties
@@ -430,8 +547,8 @@ console.log(acc1.getMovements());
 // Chaining Methods
 // return this; // to make methods chainable
 
-acc1.deposits(500).deposits(200).withdraw(50).requestLoan(52000).withdraw(1200);
-console.log(acc1.getMovements());
+// acc1.deposits(500).deposits(200).withdraw(50).requestLoan(52000).withdraw(1200);
+// console.log(acc1.getMovements());
 
 ////////////////////////////////////////////////////////////////
 // Summery : ES6 Classes
