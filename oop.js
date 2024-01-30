@@ -88,34 +88,93 @@
 ///////////////////////////////////////////////////////////////////////////////////////
 
 ///// 3. Implementing Prototypal inheritance
-// 1. with constructor function
 
-let Animal = function (name) {
-  this.name = name;
+// // 1. with constructor function
+
+// let Animal = function (name) {
+//   this.name = name;
+// };
+
+// Animal.prototype.makeSound = function () {
+//   console.log("Generic Animal Sound");
+// };
+
+// let genericAnimal = new Animal("Generic Animal");
+
+// let Dog = function (name, breed) {
+//   Animal.call(this, name);
+//   this.breed = breed;
+// };
+
+// Dog.prototype = Object.create(Animal.prototype);
+
+// Dog.prototype.bark = function () {
+//   console.log("woof! woof!");
+// };
+
+// let myDog = new Dog("Buddy", "Golden Retriever");
+
+// genericAnimal.makeSound(); // Generic Animal Sound
+// myDog.makeSound(); // Generic Animal Sound
+// myDog.bark(); // woof! woof!
+// // console.dir(Animal);
+// // console.dir(Dog);
+// // console.dir(myDog);
+
+// //// with ES6 classes
+
+// class Animal {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   makeSound() {
+//     console.log("Generic Animal Sound");
+//   }
+// }
+
+// class Dog extends Animal {
+//   constructor(name, breed) {
+//     super(name);
+//     this.breed = breed;
+//   }
+
+//   bark() {
+//     console.log("woof! woof!");
+//   }
+// }
+
+// let GenericAnimal = new Animal("Generic Animal");
+// let myDog = new Dog("Buddy", "Golden Retriever");
+
+// GenericAnimal.makeSound(); // Generic Animal Sound
+// myDog.makeSound(); // Generic Animal Sound
+// myDog.bark(); // woof! woof!
+
+// // console.dir(Animal);
+// // console.dir(Dog);
+// // console.dir(myDog);
+
+//// with Object.create()
+
+let Animal = {
+  makeSound() {
+    console.log("Generic Animal Sound");
+  },
 };
 
-Animal.prototype.makeSound = function () {
-  console.log("Generic Animal Sound");
+let genericAnimal = Object.create(Animal);
+
+let Dog = Object.create(Animal);
+
+Dog.breed = "Labrador";
+Dog.bark = function () {
+  console.log("Woof! Woof!");
 };
 
-let genericAnimal = new Animal("Generic Animal");
 genericAnimal.makeSound(); // Generic Animal Sound
-
-let Dog = function (name, breed) {
-  Animal.call(this, name);
-  this.breed = breed;
-};
-
-Dog.prototype = Object.create(Animal.prototype);
-
-Dog.prototype.bark = function () {
-  console.log("woof! woof!");
-};
-
-let myDog = new Dog("Buddy", "Golden Retriever");
-myDog.makeSound(); // Generic Animal Sound
-myDog.bark(); // woof! woof!
-console.dir(Animal);
+Dog.makeSound(); // Generic Animal Sound
+Dog.bark(); // Woof! Woof!
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 1. Constructor functions and the "new" Operator
