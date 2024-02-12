@@ -514,6 +514,178 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
+///// find() Method :
+
+/// ex : 1
+
+// let numbers = [1, 3, 4, 5, 23, 34, 12, 67, 32, 42];
+// let firstTwod = numbers.find((num) => num > 10);
+// console.log(firstTwod);
+// const numbers = [1, 4, 3, 5, 23, 34, 12, 67, 32, 42];
+
+// const reuslt = numbers.find((num) => num > 2);
+
+// console.log(reuslt); // 4
+
+//// ex : 2
+
+// const userDatabase = [
+//   { id: 1, username: "Daulat_jajra", email: "daulatjajra@gmail.com" },
+//   { id: 2, username: "Muskan_khan", email: "muskankhan@gmail.com" },
+//   { id: 3, username: "Manisha_khan", email: "manishakhan@gmail.com" },
+//   { id: 4, username: "Suman_khan", email: "sumankhan@gmail.com" },
+//   { id: 5, username: "Puspa_khan", email: "puspakhan@gmail.com" },
+//   { id: 6, username: "Yash_khan", email: "yashkhan@gmail.com" },
+//   { id: 7, username: "Aman_khan", email: "amankhan@gmail.com" },
+//   { id: 8, username: "Sachin_khan", email: "sachinkhan@gmail.com" },
+// ];
+
+// const userToFind = 5;
+
+// const puspa = userDatabase.find((user) => user.id === userToFind);
+
+// console.log(puspa); // { id: 5, username: 'Puspa_khan', email: 'puspakhan@gmail.com' }
+
+//// ex : 3
+
+// const toDoList = [
+//   { id: 1, task: "Javascipt exercise", completed: false },
+//   { id: 2, task: "Read book ", completed: true },
+//   { id: 3, task: "Do coding", completed: false },
+//   { id: 4, task: "Read book ", completed: true },
+//   { id: 5, task: "Go to market", completed: false },
+//   { id: 6, task: "meet Ritest ", completed: true },
+//   { id: 7, task: "buy shoes", completed: false },
+// ];
+
+// const incompleteTasks = toDoList.find((task) => !task.completed);
+
+// console.log(incompleteTasks); // { id: 1, task: 'Javascipt exercise', completed: false }
+
+///// ex : 4
+// const customers = [
+//   {
+//     CustomerId: "C001",
+//     name: "Daulat Jajra",
+//     email: "daulatjajra@gmail.com",
+//     status: "active",
+//   },
+//   {
+//     CustomerId: "C002",
+//     name: "Muskan Khan",
+//     email: "muskankhan@gmail.com",
+//     status: "active",
+//   },
+// ];
+
+// const customerIdtoFind = "C002";
+// const foundCustomer = customers.find(
+//   (id) => id.CustomerId === customerIdtoFind
+// );
+
+// console.log(foundCustomer); // { CustomerId: 'C002', name: 'Muskan Khan', email: 'muskankhan@gmail.com', status: 'active' }
+
+//// ex : 5
+// const libraryCatalog = [
+//   {
+//     isbn: "978 - 1 - 56619 - 909 - 4",
+//     title: "Introduction to Algorithms",
+//     author: "Thomas H.",
+//   },
+//   {
+//     isbn: "978-0-385-48643-9",
+//     title: "The Great Gatsby",
+//     author: "F. Scott Fitzgerald",
+//   },
+//   {
+//     isbn: "978-0-306-40615-7",
+//     title: "To Kill a Mockingbird",
+//     author: "Harper Lee",
+//   },
+// ];
+
+// const isbnToFind = "978-0-306-40615-7";
+
+// const foundBook = libraryCatalog.find((book) => book.isbn === isbnToFind);
+
+// console.log(foundBook); // { isbn: '978-0-306-40615-7', title: 'To Kill a Mockingbird', author: 'Harper Lee' }
+
+//// ex : 6
+// let numbers = [4, 7, 9, 11, 15, 23, 12];
+
+// const isPrime = numbers.find((num, i) => {
+//   if (num <= 1) {
+//     return false;
+//   }
+//   for (let j = 2; j < num; j++) {
+//     if (num % j === 0) {
+//       return false;
+//     }
+//   }
+//   return true;
+// });
+// console.log(isPrime); // 7
+
+//// ex : 7
+// const numbers = [5, 4, 3, 2, 1];
+// let firstReverse = numbers.reverse().find((num) => num > 2);
+// console.log(firstReverse); // 3
+
+///////////////////////////////////////////////////////////////////////////
+
+///// findIndex()
+
+//// ex : 1
+// const numbers = [1, 2, 1, 4, 5, 6, 7];
+// const index = numbers.findIndex((element) => element > 2);
+// console.log(index); // 3 (the first index where the element is greater than 2 is 3)
+
+//// ex : 2 index of first even number
+// let numbers = [3, 5, 7, 1, 3, 5, 19, 23, 34, 56, 12, 23, 43, 45];
+// let firstEven = numbers.findIndex((num) => num % 2 === 0);
+// console.log(firstEven); // 8 (first even number is at index 8 : 34)
+
+//// ex : 3
+
+// const mixedNum = [2, 34, 56, 1, 21, 9, 3, 8, -9, 7 - 2, 7, -4];
+// const firstNegative = mixedNum.findIndex((num) => num < 0);
+// console.log(firstNegative); // 8 (first negative number is at index 8 : -9)
+
+/// ex : 4
+// const numbers = [3, 5, 7, 1, 3, 5, 19, 23, 34, 56, 12, 23, 43, 45];
+// const firstGrater10 = numbers.findIndex((num) => num > 10);
+// console.log(firstGrater10); // 6 (first grater than 10 is at index 6 : 19)
+
+//// ex : 5
+// const numbers = [2, 5, 7, 1, 5, 19, 23, 34, 56, 12, 23, 43, 45];
+// const div3 = numbers.findIndex((num) => num % 3 === 0);
+// console.log(div3); // 9 (first number divisible by 3 is at index 9 : 12)
+
+///////////////////////////////////////////////////////////
+
+//// some() and every()
+
+//// ex : 1
+
+// let numbers = [2, 5, 7, 1, 5, 19, 23, 34, 56, 12, 23, 43, 45];
+// const isGr50 = numbers.some((num) => num > 50);
+// console.log(isGr50); // true (some number is greater than 50: 56)
+
+//// ex : 2
+// const mixedNum = [2, 34, 56, 1, 21, 9, 3, 8, -9, 7, -2, 7, -4];
+// const anyNeg = mixedNum.some((num) => num < 0);
+// console.log(anyNeg); // true (some number is negative: -9, -2, -4)
+
+//// ex : 3
+
+//////////////////////////////////////////////////////////////////////
+
+//// flat([depth])
+
+const sparseArray = [1, , , [2, , [3, , , 4]]];
+const flatSparseArray = sparseArray.flat();
+console.log(flatSparseArray); // Output: [1, 2, 3, , , 4]
+
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // .
