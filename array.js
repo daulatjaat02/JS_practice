@@ -682,9 +682,80 @@
 
 //// flat([depth])
 
-const sparseArray = [1, , , [2, , [3, , , 4]]];
-const flatSparseArray = sparseArray.flat();
-console.log(flatSparseArray); // Output: [1, 2, 3, , , 4]
+// const sparseArray = [1, , , [2, , [3, , , 4]]];
+// const flatSparseArray = sparseArray.flat();
+// console.log(flatSparseArray); // Output: [1, 2, 3, , , 4]
+
+// ////////////////////////////////////////////////////////////////
+
+//// flatMap() : It is just one level deep
+
+/// ex : 1
+// const numbers = [1, 2, 3, 4, 5];
+// const dobleNum = numbers.flatMap((num) => [num, num * 2]);
+// console.log(dobleNum); //  [1, 2, 2, 4, 3, 6, 4, 8, 5, 10]
+
+// ex: 2
+// const numbers = [
+//   [1, 2],
+//   [3, 4],
+//   [5, 6],
+// ];
+// const flatArray = numbers.flatMap((arr) => arr);
+// console.log(flatArray); //  [1, 2, 3, 4, 5, 6]
+
+/// ex: 3
+// const words = ["apple", "banana", "orange", "mango", "pineapple"];
+// const chars = words.flatMap((word) => word.split(""));
+// console.log(chars);
+// [
+//   "a",
+//   "p",
+//   "p",
+//   "l",
+//   "e",
+//   "b",
+//   "a",
+//   "n",
+//   "a",
+//   "n",
+//   "a",
+//   "o",
+//   "r",
+//   "a",
+//   "n",
+//   "g",
+//   "e",
+//   "m",
+//   "a",
+//   "n",
+//   "g",
+//   "o",
+//   "p",
+//   "i",
+//   "n",
+//   "e",
+//   "a",
+//   "p",
+//   "p",
+//   "l",
+//   "e",
+// ];
+
+//// ex : 4
+
+// const numbers = [10, 20, 30];
+// const indexes = numbers.flatMap((num, index) => {
+//   return [{ index, num }];
+// });
+// console.log(indexes);
+
+//// ex : 5
+// const mixedNum = [2, 3, 35, 2, 52, 6, 22, 6, 5, 2, 12, 23, 34, 34, 56, 77, 77];
+// const uniqueValues = mixedNum.flatMap((num, i, arr) =>
+//   arr.indexOf(num) === i ? num : []
+// );
+// console.log(uniqueValues); // [2, 3, 35, 52, 6, 22, 5, 12, 23, 34, 56, 77]
 
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
