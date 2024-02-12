@@ -1,6 +1,586 @@
 "use strict";
 
-/////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+//// A. Array Methods
+
+//// 1. slice(startIndex, endIndex)
+
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+// console.log(arr.slice(2, 5)); // [3, 4, 5]
+// console.log(arr.slice(-2)); // [6, 7]
+// console.log(arr.slice(2, -1)); // [3, 4, 5, 6]
+// console.log(arr.slice(-2, 1)); //  []
+
+// console.log(arr.slice()); // [1, 2, 3, 4, 5, 6, 7]  (copy )
+// console.log([...arr]); // [1, 2, 3, 4, 5, 6, 7] (copy )
+
+//// 2. splice (starterIndex, deleteCount, itemsToAdd)
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+// let arrDelete = arr.splice(3, 3, "a", "b", "c");
+
+// // It changes the original array
+// console.log(arrDelete); // [4, 5, 6]
+// console.log(arr); // [1, 2, 3, "a", "b", "c", 7]
+
+// console.log(arr.splice(-1)); // [7]
+// console.log(arr); // [1, 2, 3, "a", "b", "c"]
+
+// console.log(arr.splice(1)); // [2, 3, "a", "b", "c"]
+// console.log(arr); // [1]
+
+// console.log(arr.splice(-2, 0, 2, 4, 6, 8, 10)); // []
+// console.log(arr); // [ 2, 4, 6, 8, 10, 1]
+
+// console.log(arr.splice(2)); // [6, 8, 10, 1]
+// console.log(arr); // [2, 4]
+
+// console.log(arr.splice(0, 2, 3, 6, 9, 12, 15)); // [2, 4]
+// console.log(arr); // [3, 6, 9, 12, 15]
+
+// console.log(arr.splice(2, 0, 7, 14, 21, 28, 35)); // []
+// console.log(arr); // [3, 6, 7, 14, 21, 28, 35, 9, 12, 15]
+
+// console.log(arr.splice(0, 0, 12, 24, 36, 48, 60)); // []
+// console.log(arr); //  [12, 24, 36, 48, 60, 3, 6, 7, 14, 21, 28, 35, 9, 12, 15]
+
+// console.log(arr.splice(1, 0, 13, 14, 15, 16, 17)); // [] // The splice method returns an empty array when delete count is 0
+// console.log(arr); //  [12, 13, 14, 15, 16, 17, 24, 36, 48, 60, 3, 6, 7, 14, 21, 28, 35, 9, 12, 15]
+
+// console.log(arr.splice(0, 0, true, false, true, false)); // [] ( because the delete count is 0)
+// console.log(arr); // [true, false, true, false, 12, 13, 14, 15, 16, 17, 24, 36, 48, 60, 3, 6, 7, 14, 21, 28, 35, 9, 12, 15]
+
+// console.log(arr.splice(0, 4, "apple", "Mango", "Banana", "Pineapple")); // [true, false, true, false] ( because the delete count is 4)
+// console.log(arr); // ['apple', 'Mango', 'Banana', 'Pineapple', 12, 13, 14, 15, 16, 17, 24, 36, 48, 60, 3, 6, 7, 14, 21, 28, 35, 9, 12, 15]
+
+//// 3. reverse()
+// let arrRev = arr.reverse();
+// console.log(arrRev); // [7, "c", "b", "a", 3, 2, 1]
+
+//// 4. concat()
+// let arr = [1, 2, 3];
+// let arr2 = [4, 5, 6];
+// console.log(arr.concat(arr2)); // [1, 2, 3, 4, 5, 6] (Imuted : The original array is not changed)
+// console.log(arr, arr2); // [1, 2, 3] [4, 5, 6]
+// console.log([...arr, ...arr2]); // [1, 2, 3, 4, 5, 6] (Imuted : The original array is not changed)
+// console.log(arr, arr2); // [1, 2, 3] [4, 5, 6]
+
+//// 5. join()
+// let allAlphabates = [
+//   "a",
+//   "b",
+//   "c",
+//   "d",
+//   "e",
+//   "f",
+//   "g",
+//   "h",
+//   "i",
+//   "j",
+//   "k",
+//   "l",
+//   "m",
+//   "a",
+//   "n",
+//   "o",
+//   "p",
+//   "q",
+//   "r",
+//   "s",
+//   "t",
+//   "u",
+//   "v",
+//   "w",
+//   "x",
+//   "y",
+//   "z",
+// ];
+// console.log(allAlphabates.join(" - ")); // a - b - c - d - e - f - g - h - i - j - k - l - m - a - n - o - p - q - r - s - t - u - v - w - x - y - z
+
+//// 6. at()
+// let arrSum = [2, 4, 6, 8, 10];
+// console.log(arrSum[1]); // 4
+// console.log(arrSum.at(1)); // 4
+
+// Get the last element of the array
+// console.log(arrSum.splice(-1)); // [10]
+// console.log(arrSum.splice(-1)[0]); // 10
+// console.log(arrSum.at(-1)); // 10
+// console.log(arrSum[arrSum.length - 1]); // 10
+
+//// 7. forEach()
+
+//// a.)Logging array elements
+
+// let fruits = ["Apple", "Banana", "Orange"];
+// fruits.forEach(function (fruit, index) {
+//   console.log(`${index} : ${fruit}`);
+// }); // 0 : Apple, 1 : Banana, 2 : Orange
+
+// //// b.) Modifyig Elements
+// let numbers = [1, 2, 3, 4, 5];
+// numbers.forEach((number, index, array) => {
+//   array[index] = number * 2;
+// });
+// console.log(numbers); // [2, 4, 6, 8, 10]
+
+//// 3. filterig and creating new array
+// let scores = [67, 56, 78, 89, 99, 90, 56, 34, 99, 87];
+// let passingScores = [];
+// scores.forEach((number) => {
+//   if (number > 70) {
+//     passingScores.push(number);
+//   }
+// });
+// console.log(passingScores); // [78, 89, 99, 90, 99, 87]
+
+//// 4. loging square of number
+// let number = [5, 10, 15, 20];
+// number.forEach((number) => {
+//   let square = number ** 2;
+//   console.log(`Sqare of ${number} is ${square}`);
+// });
+
+//// 5. filterig odd number
+// let numbers = [
+//   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+// ];
+// let oddNubmer = [];
+// numbers.forEach((num) => {
+//   if (num % 2 !== 0) {
+//     oddNubmer.push(num);
+//   }
+// });
+// console.log(oddNubmer);
+
+//// 6. summing positive number
+// let numbers = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6];
+// let sum = 0;
+// numbers.forEach((num) => {
+//   if (num > 0) {
+//     sum += num;
+//   }
+// });
+// console.log(`Sum of positive numbers is ${sum}`);
+
+//// 7. Temprature celcious to foreheit
+// let celcious = [10, 20, 30, 40, 50];
+// let foreheit = [];
+// celcious.forEach((cel) => {
+//   let fore = (cel * 9) / 5 + 32;
+//   foreheit.push(fore);
+// });
+// console.log(foreheit); // [50, 68, 86, 104, 122]
+
+//// 8. forEach with objects
+// let Person = {
+//   name: "Daualt",
+//   age: 21,
+//   city: "Jaipur",
+// };
+// Object.entries(Person).forEach(([key, value]) => {
+//   console.log(`${key} : ${value}`);
+// });
+
+///// 9. Price with 25% discount
+// let prices = [100, 200, 300, 400, 500];
+
+// prices.forEach((number, index) => {
+//   console.log(
+//     `Item ${index + 1} : Original Price ${number}, Discount Price ${
+//       number - number * 0.25
+//     }`
+//   );
+// });
+
+// ///// 10. forEach with maps
+// let PersonMap = new Map([
+//   ["Name", "Daualt"],
+//   ["Age", 21],
+// ]);
+// PersonMap.set("city", "Jaipur");
+
+// PersonMap.forEach((value, key) => {
+//   console.log(`Key : ${key} , Value: ${value}`);
+// });
+
+////// 11. with sets
+// let uniqueNums = new Set([
+//   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 5, 7, 2, 6, 2, 6, 3, 8, 9,
+// ]);
+// uniqueNums.forEach((number) => {
+//   console.log(number);
+// });
+
+//// set to an array
+// Array.from(uniqueNums).forEach((num) => {
+//   console.log(num);
+// });
+
+/////////////////////////////////////////////////////////////////////////////
+
+////
+/// 1. map
+// let numbers = [1, 2, 4, 5, 6, 7, 3, 6];
+// let square = numbers.map((num) => num * num);
+// console.log(square); // [1, 4, 16, 25, 36, 49, 9, 36]
+// console.log(numbers); // [1, 2, 4, 5, 6, 7, 3, 6]
+
+//// 2. filter
+// let numbers = [1, 2, 4, 5, 6, 7, 3, 6];
+// let evenNubmers = numbers.filter((num) => num % 2 === 0);
+// console.log(evenNubmers); // [2, 4, 6, 6]
+// console.log(numbers); // [1, 2, 4, 5, 6, 7, 3, 6]
+
+//// 3. reduce()
+// let numbers = [1, 2, 4, 5, 6, 7, 3, 6];
+// let sum = numbers.reduce((acc, num) => acc + num, 0);
+// console.log(sum); // 34
+
+//// 4. chaining
+// let numbers = [1, 2, 4, 5, 6, 7, 3, 6];
+// /// sum of even number squares
+// let sumOfSqaresEven = numbers
+//   .filter((num) => num % 2 === 0)
+//   .map((num) => num * num)
+//   .reduce((acc, num) => acc + num, 0);
+
+// console.log(sumOfSqaresEven); // 92
+
+/////// 1. map
+
+///// exmaple : 1 square
+// let number = [1, 2, 3, 4, 5, 6];
+// let square = number.map((num) => num * num);
+// console.log(square); // [1, 4, 9, 16, 25, 36]
+
+//// ex : 2
+// let items = ["cPu", "keYboArd", "MoUSe"];
+// let capitalWords = items.map((word) => word.toUpperCase());
+// console.log(capitalWords); // ['CPU', 'KEYBOARD', 'MOUSE']
+
+//// ex : 3
+// let students = [
+//   { name: "Daulat", age: 21 },
+//   { name: "Puspa", age: 25 },
+//   { name: "Manish", age: 20 },
+// ];
+
+// let nameOfStudents = students.map((students) => students.name);
+// console.log(nameOfStudents); // ['Daulat', 'Puspa', 'Manish']
+
+//// ex : 4
+// let square = [4, 9, 16, 25, 36, 49, 64];
+// let squareRoot = square.map((num) => Math.sqrt(num));
+// console.log(squareRoot); // [2, 3, 4, 5, 6, 7, 8]
+
+///// ex : 5
+// let items = ["cPu", "keYboArd", "MoUSe"];
+// let itemIndex = items.map((item, index) => {
+//   let itemUp = item.toUpperCase(item);
+//   console.log(`Item ${index} : ${itemUp}`);
+// });
+// console.log(itemIndex);
+
+// // Item 0 : CPU
+// // Item 1 : KEYBOARD
+// // Item 2 : MOUSE
+
+//// ex : 6
+// let number = [2, 5, 3, 7, 3, 7, 9, 12, 33, 13, 5, 7, 89];
+// let squareOdd = number.filter((num) => num % 2 !== 0).map((num) => num * num);
+
+// console.log(squareOdd); // [25, 9, 49, 9, 49, 81, 1089, 169, 25, 49, 7921]
+
+//// ex : 7
+// let numbers = [1, 2, 4, 5, 3, 9, 2];
+
+// let mulitplier = 3;
+
+// let mutltiples = numbers.map(function (num) {
+//   return num * this;
+// }, mulitplier);
+
+// console.log(mutltiples); // [3, 6, 12, 15, 9, 27, 6]
+
+/////////////////////////////////////////////////////////////////////////////
+
+///// 2. filter()
+
+//// ex : 1
+// let names = ["Daulat", "Muskan", "Manisha", "Suman", "Puspa", "Yash"];
+// let MNames = names.filter((name) => name.charAt(0) === "M");
+
+// console.log(MNames); // ['Muskan', 'Manisha']
+
+//// ex : 2
+// let products = [
+//   { id: 1, product: "Mobile", price: 1000 },
+//   { id: 2, product: "Laptop", price: 2000 },
+//   { id: 3, product: "TV", price: 3000 },
+//   { id: 4, product: "Watch", price: 4000 },
+//   { id: 5, product: "Tablet", price: 5000 },
+//   { id: 6, product: "Speaker", price: 6000 },
+// ];
+// let expensiveProducts = products.filter((product) => product.price >= 4000);
+// console.log(expensiveProducts);
+
+// // [{ id: 4, product: 'Watch', price: 4000 },
+// // { id: 5, product: 'Tablet', price: 5000 },
+// // { id: 6, product: 'Speaker', price: 6000 } ]
+
+//// ex : 3
+// let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let oddIndex = numbers.filter((num, i) => i % 2 !== 0);
+// console.log(oddIndex); // [2, 4, 6, 8, 10]
+
+//// ex : 4
+// let filterByThreshold = function (num) {
+//   return num < this;
+// };
+
+// let numbers = [12, 13, 9, 34, 23, 12, 789, 34, 25, 90, 45, 38, 189, 900];
+
+// let underHun = numbers.filter(filterByThreshold, 100);
+
+// console.log(underHun); // [12, 13, 9, 34, 23, 12, 34, 25, 90, 45, 38]
+
+//// ex : 5
+// let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let squareOdds = numbers.filter((num) => num % 2 !== 0).map((num) => num ** 2);
+
+// console.log(squareOdds); // [1, 9, 25, 49, 81]
+
+//// ex : 6
+// let numbers = [-2, -4, -2, 5, 12, -34, 65, -12, 10, -23];
+
+// let sumPos = numbers
+//   .filter((num) => num > 0)
+//   .reduce((sum, pos) => sum + pos, 0);
+
+// console.log(sumPos); // 92
+
+//// ex : 7
+// let names = [
+//   "Daulat",
+//   "Muskan",
+//   "Manisha",
+//   "Suman",
+//   "Puspa",
+//   "Yash",
+//   "Chiki",
+//   "Pooja",
+//   "Dipak",
+//   "Bunty",
+//   "Nirmal",
+//   "Sakshi",
+//   "Veer",
+// ];
+
+// let shortNames = names.filter((num) => num.length <= 5);
+
+// console.log(shortNames); //  ['Suman', 'Puspa', 'Yash', 'Chiki', 'Pooja', 'Dipak', 'Bunty', 'Veer']
+
+//// ex : 8
+
+// let students = [
+//   { name: "Daulat", marks: 90, passed: true },
+//   { name: "Muskan", marks: 80, passed: true },
+//   { name: "Manisha", marks: 70, passed: true },
+//   { name: "Suman", marks: 60, passed: false },
+//   { name: "Puspa", marks: 50, passed: false },
+// ];
+
+// let bestStu = students.filter((stu) => stu.marks >= 90 || stu.passed);
+
+// console.log(bestStu);
+// // [{ name: 'Daulat', marks: 90, passed: true },
+// // { name: 'Muskan', marks: 80, passed: true }
+// // { name: 'Manisha', marks: 70, passed: true } ]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//// Reduce
+
+//// ex : 1
+// let numbers = [1, 2, 3, 4, 5];
+// let sum = numbers.reduce((acc, num) => acc + num, 0);
+// console.log(sum); // 15
+
+// //// ex : 2
+// let numbers = [2, 3, 4, 5];
+
+// let product = numbers.reduce((acc, num) => acc * num, 0);
+// console.log(product); // 0
+
+// let product2 = numbers.reduce((acc, num) => acc * num, 1);
+// console.log(product2); // 120
+
+//// ex : 3
+// const nested = [
+//   [1, 2],
+//   [3, 4],
+//   [5, 6],
+// ];
+// let simple = nested.reduce((acc, num) => [...acc, ...num], []);
+// console.log(simple); // [1, 2, 3, 4, 5, 6]
+
+//// ex : 4
+// let names = [
+//   "Daulat",
+//   "Muskan",
+//   "Manisha",
+//   "Suman",
+//   "Daulat",
+//   "Suman",
+//   "Daulat",
+//   "Muskan",
+//   "Manisha",
+//   "Suman",
+//   "Daulat",
+//   "Suman",
+//   "Daulat",
+//   "Muskan",
+//   "Manisha",
+//   "Manisha",
+//   "Suman",
+// ];
+
+// let accurace = names.reduce((acc, val) => {
+//   acc[val] = (acc[val] || 0) + 1;
+//   return acc;
+// }, {});
+// console.log(accurace); // { Daulat: 5, Muskan: 3, Manisha: 4, Suman: 5 }
+
+//// ex : 5
+// let numbers = [1, 2, 3, 4, 5, 23, 34, 12, 67, 32, 42];
+// let maxNum = numbers.reduce((max, num) => (num > max ? num : max), 0);
+// console.log(maxNum); // 67
+
+//// ex : 6
+// let students = [
+//   { name: "Daualt", grade: "A" },
+//   { name: "Muskan", grade: "B" },
+//   { name: "Manisha", grade: "C" },
+//   { name: "Suman", grade: "A" },
+//   { name: "Puspa", grade: "B" },
+//   { name: "Yash", grade: "B" },
+// ];
+
+// const groupedByGrade = students.reduce((grouped, student) => {
+//   const grade = student.grade;
+//   grouped[grade] = grouped[grade] || [];
+//   grouped[grade].push(student.name);
+//   return grouped;
+// }, {});
+
+// console.log(groupedByGrade);
+
+// // { A: ['Daualt', 'Suman'],
+// //   B: ['Muskan', 'Puspa', 'Yash'],
+// //   C: ['Manisha'] }
+
+///// ex : 7
+// let num = [1, 2, 3, 4, 5];
+// let reverse = num.reduceRight((acc, num) => {
+//   acc.push(num);
+//   return acc;
+// }, []);
+// console.log(reverse); // [5, 4, 3, 2, 1]
+
+//// ex : 8
+// const functions = [
+//   (value) => value + 1,
+//   (value) => value * 2,
+//   (value) => value - 3,
+// ];
+
+// const composeResult = functions.reduce((result, func) => func(result), 10);
+
+// console.log(composeResult); // 19
+
+//// ex : 9
+// let duplicates = [
+//   2, 1, 2, 1, 4, 7, 3, 2, 1, 2, 1, 4, 7, 3, 2, 1, 2, 1, 4, 7, 3,
+// ];
+
+// let unique = duplicates.reduce((unique, num) => {
+//   if (!unique.includes(num)) {
+//     unique.push(num);
+//   }
+//   return unique;
+// }, []);
+// console.log(unique); // [2, 1, 4, 7, 3]
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// .
+// .
+// .
+// .
+// .
+// .
+// ..
+// .
+// .
+// .
+// .
+// .
+
+// .
+// .
+// .
+// .
+// .
+// .
+// ..
+// .
+// .
+// .
+// .
+// .
+
+// .
+// .
+// .
+// .
+// .
+// .
+// ..
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// ..
+// .
+// .
+// .
+// .
+// .
+
+// .
+// .
+// .
+// .
+// .
+// .
+// ..
+// .
+// .
+// .
+// .
+// .
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Array Methods
 
 // let arr = ["a", "b", "c", "d", "e", "f", "g"];
@@ -52,7 +632,7 @@
 /////////////////////////////////////////////////////////////////////////
 
 // // 7. ForEach Method
-let movements = [200, 450, -400, 3000, -600, -130, 70, 1300];
+// let movements = [200, 450, -400, 3000, -600, -130, 70, 1300];
 
 // // for (let movement in movements) {
 // for (const [i, movement] of movements.entries()) {

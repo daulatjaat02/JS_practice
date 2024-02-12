@@ -1052,4 +1052,4 @@
 // // f. Nested Distructuring [Arrays in [arrays]]
 // let num2 = [1, 2, [3, 4, 5], 6, [7, 8, 9]];
 // let [first1, , [third, , fifth], , [, ...others]] = num2;
-// console.log(first1, [third, fifth], others);
+// console.log(first1, [third, fifth], others);1
