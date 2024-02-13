@@ -67,66 +67,103 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-// Day - x / #100daysOfCode
+// // Day - x / #100daysOfCode
 
-// Math and Rounding
+// // Math and Rounding
 
-// Math Methods  :
+// // Math Methods  :
 
-// 1. Math.sqrt()
-console.log(Math.sqrt(225)); // 15
-console.log(225 ** (1 / 2)); // 15
-console.log(8 ** (1 / 3)); // 2
+// // 1. Math.sqrt()
+// console.log(Math.sqrt(225)); // 15
+// console.log(225 ** (1 / 2)); // 15
+// console.log(8 ** (1 / 3)); // 2
 
-// 2. Math.max() & Math.min()
-console.log(Math.max(23, 56, 89, 60, 12, 45)); // 89
-console.log(Math.max(23, 56, "89", 60, 12, 45)); // 89
-console.log(Math.max(23, 56, "89rem", 60, 12, 45)); // NaN
-console.log(Math.min(23, 56, "89", 60, 12, 45)); // 12
+// // 2. Math.max() & Math.min()
+// console.log(Math.max(23, 56, 89, 60, 12, 45)); // 89
+// console.log(Math.max(23, 56, "89", 60, 12, 45)); // 89
+// console.log(Math.max(23, 56, "89rem", 60, 12, 45)); // NaN
+// console.log(Math.min(23, 56, "89", 60, 12, 45)); // 12
 
-// 3. Math.PI()
-console.log(Math.PI * Number.parseFloat("10px") ** 2); // 314.1592653589793
-// formula : π * r^2
+// // 3. Math.PI()
+// console.log(Math.PI * Number.parseFloat("10px") ** 2); // 314.1592653589793
+// // formula : π * r^2
 
-// 4. Math.round() / Math.ceil() / Math.trunc() / Math.floor()
-console.log(Math.round(12.4)); // 12
-console.log(Math.round(12.5)); // 13 // round the nearest number
-console.log(Math.round(12.6)); // 13
+// // 4. Math.round() / Math.ceil() / Math.trunc() / Math.floor()
+// console.log(Math.round(12.4)); // 12
+// console.log(Math.round(12.5)); // 13 // round the nearest number
+// console.log(Math.round(12.6)); // 13
 
-console.log(Math.ceil(12.5)); // 13 // round up
-console.log(Math.ceil(12.1)); // 13
-console.log(Math.ceil(12.9)); // 13
+// console.log(Math.ceil(12.5)); // 13 // round up
+// console.log(Math.ceil(12.1)); // 13
+// console.log(Math.ceil(12.9)); // 13
 
-// Math.trunc() and Math.floor both round down and cut the decimal part (but not with negative numbers)
-console.log(Math.floor(12.5)); // 12 // round down
-console.log(Math.floor("12.1")); // 12 // Does type coercion itself(convert string to number)
-console.log(Math.floor(12.9)); // 12
+// // Math.trunc() and Math.floor both round down and cut the decimal part (but not with negative numbers)
+// console.log(Math.floor(12.5)); // 12 // round down
+// console.log(Math.floor("12.1")); // 12 // Does type coercion itself(convert string to number)
+// console.log(Math.floor(12.9)); // 12
 
-console.log(Math.trunc(12.6)); // 12
-console.log(Math.trunc(12.5)); // 12
+// console.log(Math.trunc(12.6)); // 12
+// console.log(Math.trunc(12.5)); // 12
 
-// with negative numbers floor round up and trunc round down
-console.log(Math.trunc(-23.12)); // -23
-console.log(Math.floor(-23.12)); // -24
+// // with negative numbers floor round up and trunc round down
+// console.log(Math.trunc(-23.12)); // -23
+// console.log(Math.floor(-23.12)); // -24
 
-// 5. Math.random()
-console.log(Math.round(Math.random() * 10)); // 0 - 9
+// // 5. Math.random()
+// console.log(Math.round(Math.random() * 10)); // 0 - 9
 
-const randomInt = (min, max) =>
-  Math.round(Math.random() * (max - min) + 1) + min;
+// const randomInt = (min, max) =>
+//   Math.round(Math.random() * (max - min) + 1) + min;
 
-console.log(randomInt(10, 20)); // 10 - 20
+// console.log(randomInt(10, 20)); // 10 - 20
 
-// Rounding Decimals
+// // Rounding Decimals
 
-// toFixed() : output a string
-console.log((28.9800998).toFixed(3)); // 28.980
-console.log(+(28.9800998).toFixed(2)); // 28.98  (+ is used to convert string to number)
+// // toFixed() : output a string
+// console.log((28.9800998).toFixed(3)); // 28.980
+// console.log(+(28.9800998).toFixed(2)); // 28.98  (+ is used to convert string to number)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Day - x / #100daysOfCode
 
+// Remainder Operator
+console.log(10 % 3); // 1 => It means (10 divided by 3 equals 3 with a remainder of 1)
+
+const dividend = 17;
+const divisor = 5;
+console.log(dividend % divisor); // Output: 2 (17 divided by 5 equals 3 with a remainder of 2)
+
+// Leap Year
+const isLeapYear = function (year) {
+  if (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) {
+    console.log(`${year} is a leap year`);
+  } else {
+    console.log(`${year} is not a leap year`);
+  }
+};
+isLeapYear(2024); // 2024 is a leap year
+isLeapYear(2000); // 2000 is a leap year
+isLeapYear(2005); //  2005 is not a leap year
+
+// Find Last Digit
+const findLastDigit = (num) => {
+  const lastnum = num % 10;
+  console.log(lastnum);
+};
+findLastDigit(2343); // 3
+findLastDigit(234874518541); // 1
+
+// isEven ()
+const isEven = (num) => {
+  if (num % 2 === 0) {
+    console.log(`${num} is an even number`);
+  } else {
+    console.log(`${num} is an odd number`);
+  }
+};
+isEven(23); // 23 is an odd number
+isEven("25"); // 25 is an odd number
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // .
 // .
