@@ -67,7 +67,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-// // Day - x / #100daysOfCode
+// // Day - 2 / #100daysOfCode
 
 // // Math and Rounding
 
@@ -125,7 +125,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// // Day - x / #100daysOfCode
+// // Day - 3 / #100daysOfCode
 
 // // Remainder Operator
 // console.log(10 % 3); // 1 => It means (10 divided by 3 equals 3 with a remainder of 1)
@@ -184,7 +184,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// // Day - x / #100daysOfCode
+// // Day - 4 / #100daysOfCode
 
 // // BigInt
 
@@ -239,9 +239,57 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Day - x / #100daysOfCode
+// Day - 5 / #100daysOfCode .............. change the date
 
-// Date :
+// Creating Dates :
+
+// 1. Current Date and Time
+const now = new Date();
+console.log(now); // ........................ GMT+0530 (India Standard Time)
+
+// 2. Specific Date and Time
+const date = new Date("Tue Feb 13 2024 19:31:04");
+console.log(date); // Tue Feb 13 2024 19:31:04 GMT+0530 (India Standard Time)
+
+console.log(new Date("November 17 2004")); // Wed Nov 17 2004 00:00:00 GMT+0530 (India Standard Time)
+
+// 3. Using Individual Components
+console.log(new Date(2025, 1, 12, 7, 10, 24)); // Wed Feb 12 2025 07:10:24 GMT+0530 (India Standard Time)
+// Month Index is started from (0 : January)
+
+// Autocorrect
+console.log(new Date(2025, 1, 31)); // Mon Mar 03 2025 00:00:00 GMT+0530 (India Standard Time)
+
+console.log(new Date(0)); // Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)
+
+// Days to milliseconds (In a day)
+console.log(new Date(1 * 24 * 60 * 60 * 1000)); // Fri Jan 02 1970 05:30:00 GMT+0530 (India Standard Time)
+console.log(1 * 24 * 60 * 60 * 1000); // 86400000 (It's called timestamp)
+
+// Working with Dates
+const future = new Date(2025, 10, 17, 15, 12, 48, 345);
+console.log(future);
+
+console.log(future.getFullYear()); // 2025
+console.log(future.getMonth()); // 10
+console.log(future.getDate()); // 17 ( Date )
+console.log(future.getDay()); // 1 - The Number of the day in week  (Monday)
+console.log(future.getHours()); // 15
+console.log(future.getMinutes()); // 12
+console.log(future.getSeconds()); // 48
+console.log(future.getMilliseconds()); // 345
+
+console.log(future.toISOString()); // 2025-11-17T09:42:48.345Z
+
+console.log(future.getTime()); // Timestamp : 1763372568345
+
+// Reverse the Timestamp
+console.log(new Date(1763372568345)); // Mon Nov 17 2025 15:12:48 GMT+0530 (India Standard Time)
+
+// Special Method to get now's Timestamp
+console.log(Date.now()); // 1707834276493
+
+// Just like get we have all set methods :
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // .
 // .
