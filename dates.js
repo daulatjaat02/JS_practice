@@ -125,45 +125,123 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// // Day - x / #100daysOfCode
+
+// // Remainder Operator
+// console.log(10 % 3); // 1 => It means (10 divided by 3 equals 3 with a remainder of 1)
+
+// const dividend = 17;
+// const divisor = 5;
+// console.log(dividend % divisor); // Output: 2 (17 divided by 5 equals 3 with a remainder of 2)
+
+// // Leap Year
+// const isLeapYear = function (year) {
+//   if (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) {
+//     console.log(`${year} is a leap year`);
+//   } else {
+//     console.log(`${year} is not a leap year`);
+//   }
+// };
+// isLeapYear(2024); // 2024 is a leap year
+// isLeapYear(2000); // 2000 is a leap year
+// isLeapYear(2005); //  2005 is not a leap year
+
+// // Find Last Digit
+// const findLastDigit = (num) => {
+//   const lastnum = num % 10;
+//   console.log(lastnum);
+// };
+// findLastDigit(2343); // 3
+// findLastDigit(234874518541); // 1
+
+// // isEven ()
+// const isEven = (num) => {
+//   if (num % 2 === 0) {
+//     console.log(`${num} is an even number`);
+//   } else {
+//     console.log(`${num} is an odd number`);
+//   }
+// };
+// isEven(23); // 23 is an odd number
+// isEven("25"); // 25 is an odd number
+
+// // Numeric Seperators
+
+// // keep in mind :
+// // 1. we can't use , (comma) for seperating number
+// // 2. we can't use it just after and before decimal
+// // 3. we can't convert string to number with Numeric Seperators
+
+// console.log(123_456_789); // 123456789
+// console.log(123_456_789.123_456_789); // 123456789.123456789
+// console.log(12_234); // 12234
+// console.log(1_2234); // 12234
+// console.log(1_22_34); // 12234
+
+// console.log("234_123_45"); // 23412345
+// console.log(+"234_123_45"); // NaN (we can't convert string to number  )
+// console.log(parseFloat("234_123_45")); // 234 (which numbers are after _ will be ignored)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// // Day - x / #100daysOfCode
+
+// // BigInt
+
+// // MAX NUMBER OF JAVASCRIPT
+// console.log(2 ** 53 - 1); // 9007199254740991
+// console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+
+// // Those numbers are bigger then this are not calculated accurately
+// console.log(2 ** 53 + 2); // 9007199254740994
+// console.log(2 ** 53 + 3); // 9007199254740996
+// console.log(2 ** 53 + 4); // 9007199254740996
+// console.log(2 ** 53 + 9); // 9007199254741000
+// console.log(2 ** 53 + 8); // 9007199254741000
+// console.log(2 ** 53 + 5); // 9007199254740996
+
+// // Now BigInt comes
+
+// console.log(78918971847533966649879884919878184134878187818643459845n); // 78918971847533966649879884919878184134878187818643459845n
+// console.log(BigInt(78918971847533966649879884919878184134878187818643459845)); // 78918971847533964674552813104729899937469478857420570624n
+
+// // Don't use BigInt with very big numbers only use " n "
+
+// console.log(BigInt(78918971847533)); // 78918971847533n
+
+// // Math Operations are not possible with BigInt
+// // console.log(Math.random() * 100n); // TyepeError: Cannot mix BigInt and other types
+
+// // Operations
+// console.log(10000n * 10000n); // 100000000n
+// console.log(7481897941987456358567841984n * 10000000n); // 74818979419874563585678419840000000n
+
+// // console.log(7481897941987456358567841984n * 10000000); //Cannot mix BigInt and other types, use explicit conversions
+
+// const huge = 68748189784951757784189744n;
+// const num = 69;
+// console.log(huge * BigInt(num)); // 4743625095161671287109092336n
+
+// console.log(500 > 499n); // true
+// console.log("500" == 500n); // true
+// console.log(500 === 500n); // false
+// console.log(500 !== 500n); // true
+
+// console.log(typeof huge); // bigint
+
+// // Division
+
+// const a = 10n;
+// const b = 3n;
+// const div = a / b;
+// console.log(div); // 3n (The nearest bigint value)
+// console.log(10 / 3); // 3.3333333333333335
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Day - x / #100daysOfCode
 
-// Remainder Operator
-console.log(10 % 3); // 1 => It means (10 divided by 3 equals 3 with a remainder of 1)
-
-const dividend = 17;
-const divisor = 5;
-console.log(dividend % divisor); // Output: 2 (17 divided by 5 equals 3 with a remainder of 2)
-
-// Leap Year
-const isLeapYear = function (year) {
-  if (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) {
-    console.log(`${year} is a leap year`);
-  } else {
-    console.log(`${year} is not a leap year`);
-  }
-};
-isLeapYear(2024); // 2024 is a leap year
-isLeapYear(2000); // 2000 is a leap year
-isLeapYear(2005); //  2005 is not a leap year
-
-// Find Last Digit
-const findLastDigit = (num) => {
-  const lastnum = num % 10;
-  console.log(lastnum);
-};
-findLastDigit(2343); // 3
-findLastDigit(234874518541); // 1
-
-// isEven ()
-const isEven = (num) => {
-  if (num % 2 === 0) {
-    console.log(`${num} is an even number`);
-  } else {
-    console.log(`${num} is an odd number`);
-  }
-};
-isEven(23); // 23 is an odd number
-isEven("25"); // 25 is an odd number
+// Date :
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // .
 // .
