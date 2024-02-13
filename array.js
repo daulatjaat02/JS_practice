@@ -757,7 +757,64 @@
 // );
 // console.log(uniqueValues); // [2, 3, 35, 52, 6, 22, 5, 12, 23, 34, 56, 77]
 
-// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+/// sort ()
+// const numbers = [2, 3, 5, 66, 23, 12, 5, 2, 523, 445, 6, 23, 890, 90, 809];
+// const assending = numbers.sort();
+// console.log(assending); // apply only on the first letter
+// // [12, 2, 2, 23, 23, 3, 445, 5, 5, 523, 6, 66, 809, 890, 90]
+
+// ex : 2
+// const numbers = [2, 3, 5, 66, 23, 12, 5, 2, 523, 445, 6, 23, 890, 90, 809];
+// const assending = numbers.sort((a, b) => a - b);
+// console.log(assending);
+// //[2, 2, 3, 5, 5, 6, 12, 23, 23, 66, 90, 445, 523, 809, 890]
+
+// const persons = [
+//   { name: "Daulat", age: 21 },
+//   { name: "Aditya", age: 20 },
+//   { name: "Sara", age: 18 },
+// ];
+
+// const sortByAge = persons.sort((a, b) => a.age - b.age);
+// console.log(sortByAge);
+
+//[ {name: 'Sara', age: 18}
+//  {name: 'Aditya', age: 20}
+//  {name: 'Daulat', age: 21} ]
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//// Array Methods Practice
+
+// const account1 = {
+//   movements: [233, -123, 900, 566, 980, 1200, -340, -580],
+// };
+// const account2 = {
+//   movements: [-58, 120, 400, -566, 850, 2500, 540, -10],
+// };
+
+// const accounts = [account1, account2];
+
+// // Q. 1 Get the total balance in all accounts
+// const totalBalance = accounts
+//   .flatMap((acc) => acc.movements)
+//   .filter((mov) => mov > 0)
+//   .reduce((acc, num) => acc + num, 0);
+
+// console.log(totalBalance); // 8289
+
+// Q. 2 How many deposits are above 500
+// const aboveTh = accounts
+//   .flatMap((acc) => acc.movements)
+//   .filter((mov) => mov >= 500).length;
+
+// console.log(aboveTh); // 7
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // .
 // .
