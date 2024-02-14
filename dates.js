@@ -307,6 +307,8 @@
 
 // INTL API : Internationalizing Dates
 
+// 1. Date - Time Formatting
+
 // const now = new Date();
 // const options = {
 //   hour: "numeric",
@@ -381,16 +383,50 @@
 // console.log(formatDate); // 14 febbraio 2024
 
 // ex : 6 - Display date in Russian
-const date = new Date("2024-02-14T15:30:00");
+// const date = new Date("2024-02-14T15:30:00");
+
+// const options = {
+//   dateStyle: "full",
+//   timeStyle: "long",
+// };
+
+// const locale = "ru-RU";
+// const formatDate = new Intl.DateTimeFormat(locale, options).format(date);
+// console.log(formatDate); // среда, 14 февраля 2024 г. в 15:30:00 GMT+5:30
+
+///////////////
+
+// 2. Number Formatting
+
+const numbers = 2_34_56_789.34;
 
 const options = {
-  dateStyle: "full",
-  timeStyle: "long",
+  style: "unit",
+  unit: "mile-per-hour",
+  // unit: "celsius",
+
+  style: "currency",
+  currency: "INR", // currency not determined by the locale
+
+  useGrouping: false, //  ₹23456789.34 (It will hide the group separator (,))
 };
 
-const locale = "ru-RU";
-const formatDate = new Intl.DateTimeFormat(locale, options).format(date);
-console.log(formatDate); // среда, 14 февраля 2024 г. в 15:30:00 GMT+5:30
+console.log("US : ", new Intl.NumberFormat("en-UK", options).format(numbers)); // UK :  23,456,789.34 mph
+
+console.log(
+  "German : ",
+  new Intl.NumberFormat("de-DE", options).format(numbers)
+); // German : 23.456.789,34 mi/h
+
+console.log(
+  "Syria : ",
+  new Intl.NumberFormat("ar-SY", options).format(numbers)
+); // Syria : ميل/س  ٢٣٬٤٥٦٬٧٨٩٫٣٤
+
+console.log(
+  "Browser : ",
+  new Intl.NumberFormat(navigator.language, options).format(numbers)
+); // Browser : 23,456,789.34 mph
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // .
