@@ -303,6 +303,95 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Day - 6 / #100daysOfCode
+
+// INTL API : Internationalizing Dates
+
+// const now = new Date();
+// const options = {
+//   hour: "numeric",
+//   minute: "numeric",
+//   day: "numeric",
+//   month: "long",
+//   year: "numeric",
+//   weekday: "long",
+// };
+// const locale = navigator.language; // en-US
+
+// // date.textContent = new Intl.DateTimeFormat("en-UK", options).format(now);
+// date.textContent = new Intl.DateTimeFormat(locale, options).format(now);
+
+// Examples :
+
+// ex : 1 - Display date in English
+// const date = new Date("2024-02-14T15:30:00");
+// const options = {
+//   weekday: "long",
+//   year: "numeric",
+//   month: "long",
+//   day: "numeric",
+// };
+// const locale = "en-US";
+
+// const formateDate = new Intl.DateTimeFormat(locale, options).format(date);
+
+// console.log(formateDate); // wednesday, February 14, 2024
+
+// ex : 2 - Display date in french
+// const date = new Date("2024-02-14T15:30:00");
+// const options = {
+//   dateStyle: "short",
+// };
+// const locale = "fr-FR";
+// const formatDate = new Intl.DateTimeFormat(locale, options).format(date);
+// console.log(formatDate); // 14/02/2024
+
+// // ex : 3 - Display date in spanish
+// const date = new Date("2024-02-14T15:30:00");
+
+// const options = {
+//   dateStyle: "medium",
+//   timeStyle: "medium",
+// };
+// const locale = "es-ES";
+// const formatDate = new Intl.DateTimeFormat(locale, options).format(date);
+// console.log(formatDate); // 14 feb 2024, 15:30:00
+
+// ex : 4 - Display date in German
+// const date = new Date("2024-02-14T15:30:00");
+
+// const options = {
+//   dateStyle: "full",
+//   timeStyle: "long",
+//   tiemzoneName: "short",
+// };
+// const locale = "de-DE";
+
+// const formatDate = new Intl.DateTimeFormat(locale, options).format(date);
+// console.log(formatDate); // Mittwoch, 14. Februar 2024 um 15:30:00 GMT+5:30
+
+// ex : 5 - Display date in Italian
+
+// const date = new Date("2024-02-14T15:30:00");
+// const options = {
+//   dateStyle: "long",
+// };
+// const locale = "it-IT";
+// const formatDate = new Intl.DateTimeFormat(locale, options).format(date);
+// console.log(formatDate); // 14 febbraio 2024
+
+// ex : 6 - Display date in Russian
+const date = new Date("2024-02-14T15:30:00");
+
+const options = {
+  dateStyle: "full",
+  timeStyle: "long",
+};
+
+const locale = "ru-RU";
+const formatDate = new Intl.DateTimeFormat(locale, options).format(date);
+console.log(formatDate); // среда, 14 февраля 2024 г. в 15:30:00 GMT+5:30
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // .
 // .
