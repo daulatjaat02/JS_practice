@@ -126,7 +126,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // // Day - 3 / #100daysOfCode
-
 // // Remainder Operator
 // console.log(10 % 3); // 1 => It means (10 divided by 3 equals 3 with a remainder of 1)
 
@@ -143,7 +142,6 @@
 //   }
 // };
 // isLeapYear(2024); // 2024 is a leap year
-// isLeapYear(2000); // 2000 is a leap year
 // isLeapYear(2005); //  2005 is not a leap year
 
 // // Find Last Digit
@@ -151,7 +149,6 @@
 //   const lastnum = num % 10;
 //   console.log(lastnum);
 // };
-// findLastDigit(2343); // 3
 // findLastDigit(234874518541); // 1
 
 // // isEven ()
@@ -166,18 +163,13 @@
 // isEven("25"); // 25 is an odd number
 
 // // Numeric Seperators
-
 // // keep in mind :
 // // 1. we can't use , (comma) for seperating number
 // // 2. we can't use it just after and before decimal
-// // 3. we can't convert string to number with Numeric Seperators
 
 // console.log(123_456_789); // 123456789
-// console.log(123_456_789.123_456_789); // 123456789.123456789
-// console.log(12_234); // 12234
-// console.log(1_2234); // 12234
+// console.log(123_456_789.123_456_789); // 123456789.12345678
 // console.log(1_22_34); // 12234
-
 // console.log("234_123_45"); // 23412345
 // console.log(+"234_123_45"); // NaN (we can't convert string to number  )
 // console.log(parseFloat("234_123_45")); // 234 (which numbers are after _ will be ignored)
@@ -398,112 +390,38 @@
 
 // 2. Number Formatting
 
-const numbers = 2_34_56_789.34;
+// const numbers = 2_34_56_789.34;
 
-const options = {
-  style: "unit",
-  unit: "mile-per-hour",
-  // unit: "celsius",
+// const options = {
+//   style: "unit",
+//   unit: "mile-per-hour",
+//   // unit: "celsius",
 
-  style: "currency",
-  currency: "INR", // currency not determined by the locale
+//   style: "currency",
+//   currency: "INR", // currency not determined by the locale
 
-  useGrouping: false, //  ₹23456789.34 (It will hide the group separator (,))
-};
+//   useGrouping: false, //  ₹23456789.34 (It will hide the group separator (,))
+// };
 
-console.log("US : ", new Intl.NumberFormat("en-UK", options).format(numbers)); // UK :  23,456,789.34 mph
+// console.log("US : ", new Intl.NumberFormat("en-UK", options).format(numbers)); // UK :  23,456,789.34 mph
 
-console.log(
-  "German : ",
-  new Intl.NumberFormat("de-DE", options).format(numbers)
-); // German : 23.456.789,34 mi/h
+// console.log(
+//   "German : ",
+//   new Intl.NumberFormat("de-DE", options).format(numbers)
+// ); // German : 23.456.789,34 mi/h
 
-console.log(
-  "Syria : ",
-  new Intl.NumberFormat("ar-SY", options).format(numbers)
-); // Syria : ميل/س  ٢٣٬٤٥٦٬٧٨٩٫٣٤
+// console.log(
+//   "Syria : ",
+//   new Intl.NumberFormat("ar-SY", options).format(numbers)
+// ); // Syria : ميل/س  ٢٣٬٤٥٦٬٧٨٩٫٣٤
 
-console.log(
-  "Browser : ",
-  new Intl.NumberFormat(navigator.language, options).format(numbers)
-); // Browser : 23,456,789.34 mph
+// console.log(
+//   "Browser : ",
+//   new Intl.NumberFormat(navigator.language, options).format(numbers)
+// ); // Browser : 23,456,789.34 mph
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .'
-// '
-//     .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .'
-// '
-//     .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .'
-// '
-//     .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .'
-// '
-//     .
-// .
-// .
-// .
-// .
+////////////////////////////////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Day - 7 / #100daysOfCode
 
-// let future = new Date(2024, 10, 17, 23, 12);
-// console.log(+future);
-
-// let calcDaysPassed = (date1, date2) =>
-//   Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
-// let days = calcDaysPassed(new Date(2024, 1, 23), new Date(2024, 1, 12));
-// console.log(days);
-
-///////////////////////////////////////////////////////////////////////////////
-// Chapter 1 : Converting and checking numbers
-
-// let decimalNumber = 26;
-// let binaryEquivalent = decimalNumber.toString(2);
-// console.log(binaryEquivalent); // Output: "11010"
-
-// console.log(isNaN("daulat")); // true
-// console.log(isNaN(26)); // false
-let ceiledNumber = Math.ceil(4.2);
-// console.log(ceiledNumber); // Output: 5
+// Timers : setTimeout & setInterval
