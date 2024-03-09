@@ -193,11 +193,10 @@
 // console.log(2 ** 53 + 5); // 9007199254740996
 
 // // Now BigInt comes
-
 // console.log(78918971847533966649879884919878184134878187818643459845n); // 78918971847533966649879884919878184134878187818643459845n
 // console.log(BigInt(78918971847533966649879884919878184134878187818643459845)); // 78918971847533964674552813104729899937469478857420570624n
 
-// // Don't use BigInt with very big numbers only use " n "
+// // Don't use BigInt with very big numbers use only " n "
 
 // console.log(BigInt(78918971847533)); // 78918971847533n
 
@@ -222,7 +221,6 @@
 // console.log(typeof huge); // bigint
 
 // // Division
-
 // const a = 10n;
 // const b = 3n;
 // const div = a / b;
@@ -231,67 +229,67 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// // Day - 5 / #100daysOfCode .............. change the date
+// Day - 5 / #100daysOfCode .............. change the date
 
-// // Creating Dates :
+// Creating Dates :
 
-// // 1. Current Date and Time
-// const now = new Date();
-// console.log(now); // ........................ GMT+0530 (India Standard Time)
+// 1. Current Date and Time
+const now = new Date();
+console.log(now); // ........................ GMT+0530 (India Standard Time)
 
-// // 2. Specific Date and Time
-// const date = new Date("Tue Feb 13 2024 19:31:04");
-// console.log(date); // Tue Feb 13 2024 19:31:04 GMT+0530 (India Standard Time)
+// 2. Specific Date and Time
+const date = new Date("Tue Feb 13 2024 19:31:04");
+console.log(date); // Tue Feb 13 2024 19:31:04 GMT+0530 (India Standard Time)
 
-// console.log(new Date("November 17 2004")); // Wed Nov 17 2004 00:00:00 GMT+0530 (India Standard Time)
+console.log(new Date("November 17 2004")); // Wed Nov 17 2004 00:00:00 GMT+0530 (India Standard Time)
 
-// // 3. Using Individual Components
-// console.log(new Date(2025, 1, 12, 7, 10, 24)); // Wed Feb 12 2025 07:10:24 GMT+0530 (India Standard Time)
-// // Month Index is started from (0 : January)
+// 3. Using Individual Components
+console.log(new Date(2025, 1, 12, 7, 10, 24)); // Wed Feb 12 2025 07:10:24 GMT+0530 (India Standard Time)
+// Month Index is started from (0 : January)
 
-// // Autocorrect
-// console.log(new Date(2025, 1, 31)); // Mon Mar 03 2025 00:00:00 GMT+0530 (India Standard Time)
+// Autocorrect
+console.log(new Date(2025, 1, 31)); // Mon Mar 03 2025 00:00:00 GMT+0530 (India Standard Time)
 
-// console.log(new Date(0)); // Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)
+console.log(new Date(0)); // Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)
 
-// // Days to milliseconds (In a day)
-// console.log(new Date(1 * 24 * 60 * 60 * 1000)); // Fri Jan 02 1970 05:30:00 GMT+0530 (India Standard Time)
-// console.log(1 * 24 * 60 * 60 * 1000); // 86400000 (It's called timestamp)
+// Days to milliseconds (In a day)
+console.log(new Date(1 * 24 * 60 * 60 * 1000)); // Fri Jan 02 1970 05:30:00 GMT+0530 (India Standard Time)
+console.log(1 * 24 * 60 * 60 * 1000); // 86400000 (It's called timestamp)
 
-// // Working with Dates
-// const future = new Date(2025, 10, 17, 15, 12, 48, 345);
-// console.log(future);
+// Working with Dates
+const future = new Date(2025, 10, 17, 15, 12, 48, 345);
+console.log(future);
 
-// console.log(future.getFullYear()); // 2025
-// console.log(future.getMonth()); // 10
-// console.log(future.getDate()); // 17 ( Date )
-// console.log(future.getDay()); // 1 - The Number of the day in week  (Monday)
-// console.log(future.getHours()); // 15
-// console.log(future.getMinutes()); // 12
-// console.log(future.getSeconds()); // 48
-// console.log(future.getMilliseconds()); // 345
+console.log(future.getFullYear()); // 2025
+console.log(future.getMonth()); // 10
+console.log(future.getDate()); // 17 ( Date )
+console.log(future.getDay()); // 1 - The Number of the day in week  (Monday)
+console.log(future.getHours()); // 15
+console.log(future.getMinutes()); // 12
+console.log(future.getSeconds()); // 48
+console.log(future.getMilliseconds()); // 345
 
-// console.log(future.toISOString()); // 2025-11-17T09:42:48.345Z
+console.log(future.toISOString()); // 2025-11-17T09:42:48.345Z
 
-// console.log(future.getTime()); // Timestamp : 1763372568345
+console.log(future.getTime()); // Timestamp : 1763372568345
 
-// // Reverse the Timestamp
-// console.log(new Date(1763372568345)); // Mon Nov 17 2025 15:12:48 GMT+0530 (India Standard Time)
+// Reverse the Timestamp
+console.log(new Date(1763372568345)); // Mon Nov 17 2025 15:12:48 GMT+0530 (India Standard Time)
 
-// // Special Method to get now's Timestamp
-// console.log(Date.now()); // 1707834276493
+// Special Method to get now's Timestamp
+console.log(Date.now()); // 1707834276493
 
-// // Just like get we have all set methods :
+// Just like get we have all set methods :
 
-// // Operations With Dates :
-// const future1 = new Date(2025, 10, 28);
-// console.log(+future1); // 1764268200000
+// Operations With Dates :
+const future1 = new Date(2025, 10, 28);
+console.log(+future1); // 1764268200000
 
-// const calcDaysPassed = function (date1, date2) {
-//   return Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
-// };
-// const difference = calcDaysPassed(new Date(2025, 11, 1), new Date(2025, 11, 7));
-// console.log(difference); // 6
+const calcDaysPassed = function (date1, date2) {
+  return Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+};
+const difference = calcDaysPassed(new Date(2025, 11, 1), new Date(2025, 11, 7));
+console.log(difference); // 6
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
